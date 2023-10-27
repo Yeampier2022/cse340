@@ -4,3 +4,20 @@
 *:after {
   box-sizing: border-box;
 }
+
+
+h1 {
+  color: blue;
+}
+#top-header{
+  display: flex;
+  justify-content: space-between;
+}
+li {
+  color : red;
+}
+
+footer {
+  color : red;
+
+}
