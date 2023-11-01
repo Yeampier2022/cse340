@@ -5,19 +5,110 @@
   box-sizing: border-box;
 }
 
-
 h1 {
   color: blue;
 }
-#top-header{
+#top-header {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 5vw;
 }
-li {
-  color : red;
+p {
+  margin: 0;
+  padding: 0;
+}
+.textCard {
+  position: absolute;
+  padding: 13vw 1vw;
+}
+.vehiles {
+  margin: 7vw;
+  width: 90vw;
+}
+.img-card {
+  display: flex;
+  justify-content: flex-start;
+}
+a {
+  text-decoration: none;
+}
+.siteName {
+  font-size: 10vw;
+}
+#tools {
+  padding-top: 3.5vw;
+}
+.ul-reviews {
+  padding: 1vw 5vw;
+  margin: 0px;
+}
+.font-size {
+  font-size: 4vw;
+  margin-bottom: 1vw;
+}
+.card-justify {
+  width: 25vw;
+}
+.card-justify {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  background-color: aqua;
+  justify-content: center;
+  align-items: center;
+
+  width: 44vw;
+  height: 34vw;
+}
+footer {
+  padding-top: 2vw;
+}
+.p-upgrade {
+  padding-bottom: 2vw;
 }
 
-footer {
-  color : red;
+.grid-updgrade {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  gap: 4vw;
+  background-color: #fafafa
+
+}
+.width-img {
+  width: 20vw;
+}
+.li-navigation {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  gap: 1vw;
+  text-align: center;
+  height: 12vw;
+  background-color: green;
+  align-content: center;
+  margin-bottom: 5vw;
+}
+.welcome {
+  font-size: 7vw;
+}
+
+
+@media (min-width: 900px)  {
+  .background {
+    position: relative;
+  background-image: url("../images/site/checkerboard.jpg");
+  padding: 10vw 10vw;
+
+ }
+ #wrapper {
+  border: 10px solid red;
+  position: relative;
+
+ }
 
 }
