@@ -1,0 +1,74 @@
+    .background {
+      position: relative;
+      /* background-image: url("../images/site/checkerboard.jpg"); */
+      background-color: #cb997e ;
+      padding: 3vw;
+    }
+    .flex-card {
+      display: flex;
+      justify-content: center;
+      padding-right: 9vw;
+    }
+    .grid-one {
+      grid-area: 1/2;
+      justify-items: center;
+      display: grid;
+    }
+    .li-navigation {
+      height: 6vw;
+      font-size: 2vw;
+      padding: 0px;
+    }
+    #wrapper {
+      border: 10px solid #ddbea9;
+      position: relative;
+      border-radius: 10px;
+    }
+  
+    .vehiles {
+      width: 50vw;
+      margin: 5vw;
+    }
+    #top-header {
+      margin: 0px;
+    }
+    footer {
+      font-size: 1.5vw;
+    }
+    .siteName {
+      font-size: 3vw;
+      color: black;
+      padding-top: 2vw;
+    }
+    #tools {
+      font-size: 1vw;
+    }
+    .p-upgrade {
+      font-size: 2vw;
+      padding: 0;
+      margin-bottom: 0.5vw;
+      text-align: center;
+    }
+    .grid-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3vw;
+    }
+    .width-img {
+      width: 5vw;
+    }
+    .card-justify {
+      width: 20vw;
+      height: 10vw;
+    }
+    .font-size {
+      font-size: 2vw;
+      margin-bottom: 0.5vw;
+    }
+    .ul-reviews {
+      padding-top: 0px;
+      margin-top: 0px;
+    }
+    .textCard{
+      padding: 13vw 1vw;
+    }
