@@ -2,7 +2,7 @@
       position: relative;
       /* background-image: url("../images/site/checkerboard.jpg"); */
       background-color: #cb997e ;
-      padding: 3vw;
+      padding: 2vw 8vw;
     }
     .flex-card {
       display: flex;
