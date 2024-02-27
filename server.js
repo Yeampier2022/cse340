@@ -9,6 +9,8 @@ const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
 const env = require("dotenv").config();
 const app = express();
+const baseController = require("./controllers/baseController")
+const process = require("process");
 
 app.set("view engine", "ejs")
 app.use(expressLayouts)
@@ -19,9 +21,7 @@ app.set("layout", "./layouts/layout")
 app.use(require("./routes/static"));
 //indice routes
 
-app.get("/", function(req, res) {
-  res.render("index", { title: "Home" });
-});
+app.get("/", baseController.buildHome);
 
 /* ***********************
  * Local Server Information
@@ -29,6 +29,7 @@ app.get("/", function(req, res) {
  *************************/
 const port = process.env.PORT;
 const host = process.env.HOST;
+
 
 /* ***********************
  * Log statement to confirm server operation

@@ -3,17 +3,16 @@
   <%- include('../partials/head') %>
   <body class="background">
     <div class="color-body">
-
-    <div id="wrapper">
-      <%- include('../partials/header') %> 
-      <%-include('../partials/navigation')%>
-      <main>
-        <%- body %>
-      </main>
-      <%- include('../partials/footer') %>
+      <div id="wrapper">
+        <%- include('../partials/header') %>
+        <%-
+        include('../partials/navigation') %>
+        <main><%- body %></main>
+        <%- include('../partials/footer') %>
+      </div>
     </div>
-  </div>
-
   </body>
-  
 </html>
+
+
+
