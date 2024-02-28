@@ -97,7 +97,7 @@ main {
 }
 .li-navigation {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   padding: 0px;
   margin: 0px;
   list-style: none;

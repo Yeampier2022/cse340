@@ -19,6 +19,10 @@
       font-size: 2vw;
       padding: 0px;
     }
+    #inv-display {
+      display: grid;
+    }
+
     #wrapper {
       border: 10px solid #ddbea9;
       position: relative;
