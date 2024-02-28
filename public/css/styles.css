@@ -11,15 +11,53 @@ body {
 *:after {
   box-sizing: border-box;
 }
+.img-inventory {
+  border-radius: 30px;
+}
+.li-a {
+  opacity: 1;
+}
+a:hover {
+  color: dimgrey;
+}
+.card-info {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  padding: 2vw;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
 
+  align-items: center;
+}
+.car-price {
+  text-align: center;
+}
+.title-inventory {
+  padding: 0;
+  font-size: 6vw;
+}
+.namePrice {
+  text-align: center;
+}
+#inv-display {
+  display: grid;
+  grid-template-columns:  1fr;
+  gap: 5vw;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  justify-items: center;
+
+}
 #top-header {
   padding: 0vw 2vw;
 }
 nav {
   padding: 2vw;
-}
-h1 {
-  color: blue;
 }
 #top-header {
   display: flex;
@@ -108,7 +146,7 @@ main {
 
   align-content: center;
   padding-bottom: 1vw;
-  font-size: 2.5vw;
+  font-size: 3vw;
 }
 a {
   color: black;
