@@ -1,0 +1,17 @@
+
+<% if (title) {  %>
+    <h1 class="title-not-found"><%= title  %></h1>
+<div class="container-movie">
+    <video class="movie-not-found" src="https://5a152729.flyingcdn.com/wp-content/uploads/2021/02/flamingos-404-error-page-waza.mp4" loop autoplay poster="posterimage.jpg">
+        Tu navegador no admite el elemento <code>video</code>.
+      </video>
+</div>
+   
+      
+    <% 
+} else {
+    res.rendirect('/')
+}
+    %>
+
+   <h1 class="title-not-found" > <%- message  %> </h1> 

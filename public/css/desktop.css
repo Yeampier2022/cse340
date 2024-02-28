@@ -4,6 +4,17 @@
   background-color: #cb997e;
   padding: 2vw 8vw;
 }
+.movie-not-found {
+  width: 50vw;
+}
+.container-movie {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.title-not-found {
+  text-align: center;
+}
 .img-inventory {
   border-radius: 30px;
 }
