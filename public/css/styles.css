@@ -183,6 +183,9 @@ a {
     display: flex;
     flex-direction: column;
   }
+  .notice {
+    font-size: 2.5vw;
+  }
 }
 
 /* @media (min-width: 900px) {

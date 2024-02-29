@@ -80,4 +80,6 @@ Util.buildDetailGrid = async function (data) {
   return grid
 }
 
+
+
 module.exports = Util
