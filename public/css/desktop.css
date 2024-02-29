@@ -4,6 +4,32 @@
   background-color: #cb997e;
   padding: 2vw 8vw;
 }
+
+.card-image {
+  width: 50vw;
+}
+.card-image img {
+  width: 100%;
+}
+.description-card  {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ditail-card {
+  display: flex;
+  gap: 5vw;
+}
+.detail-card-two{
+bottom: 1.5vw;
+position: relative;
+}
+.detail-container {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 .movie-not-found {
   width: 50vw;
 }

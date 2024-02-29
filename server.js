@@ -13,6 +13,7 @@ const baseController = require("./controllers/baseController")
 const process = require("process");
 const inventoryRoute = require("./routes/inventoryRoute")
 const utilities = require("./utilities")
+const detailCarId = require("./routes/detailCarId")
 
 app.set("view engine", "ejs")
 app.use(expressLayouts)
@@ -27,6 +28,9 @@ app.get("/", baseController.buildHome);
 
 // Inventory routes
 app.use("/inv", inventoryRoute)
+
+// Detail routes
+app.use("/detail", detailCarId)
 
 
 // File Not Found Route - must be last route in list
