@@ -34,7 +34,6 @@ Util.buildClassificationGrid = async function (data) {
       grid += '<li class="card-info">'
       grid += '<a href="../../detail/' + vehicle.inv_id
         + '" title="View ' + vehicle.inv_make + ' ' + vehicle.inv_model
-
         + 'details"><img class="img-inventory" src="' + vehicle.inv_thumbnail
         + '" alt="Image of ' + vehicle.inv_make + ' ' + vehicle.inv_model
         + ' on CSE Motors" /></a>'
@@ -66,32 +65,19 @@ Util.buildDetailGrid = async function (data) {
       + '" alt="Image of ' + vehicle.inv_make + ' ' + vehicle.inv_model
       + ' on CSE Motors" />'
     grid += '</div>'
-
     grid += '<div class="detail-card-two" >'
     grid += '<h1>' + vehicle.inv_make + ' ' + vehicle.inv_model + '</h1>'
     grid += '<h2>Price: $' + new Intl.NumberFormat('en-US').format(vehicle.inv_price) + '</h2>'
-    grid += '<ul class="description-card">'
-    grid += '<p><strong>Description:</strong> ' + vehicle.inv_description + '</li>'
-    grid += '<p><strong>Color:</strong> ' + vehicle.inv_color + '</p>'
-    grid += '<p><strong>Miles:</strong> ' +  new Intl.NumberFormat('en-US').format(vehicle.inv_miles) + '</p>'
-
-
+    grid += '<p class="description-p"><strong class="description-s">Description:</strong> ' + vehicle.inv_description + '</p>'
+    grid += '<p class="description-p"><strong class="description-s">Color:</strong> ' + vehicle.inv_color + '</p>'
+    grid += '<p class="description-p"><strong class="description-s">Miles:</strong> ' + new Intl.NumberFormat('en-US').format(vehicle.inv_miles) + '</p>'
+    grid += '</div>'
+    grid += '</li>'
     grid += '</ul>'
 
-    grid += '</div>'
-
-    grid += '</li>'
-
-  
-
-  }
-
-
-  )
+    
+  })
   return grid
-
-
-  
 }
 
 module.exports = Util

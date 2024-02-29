@@ -4,7 +4,14 @@
   background-color: #cb997e;
   padding: 2vw 8vw;
 }
+.description-s {
+  font-size: 1.2vw;
 
+}
+.description-p {
+  padding-top: 1vw;
+  font-size: 1vw;
+}
 .card-image {
   width: 50vw;
 }
@@ -64,6 +71,7 @@ a:hover {
 }
 .car-price {
   text-align: center;
+  font-size: 1vw;
 }
 .title-inventory {
   padding: 0;
