@@ -6,6 +6,21 @@ body {
 .color-body {
   background-color: #ffe8d6;
 }
+.title-login {
+  text-align: center;
+}
+.ctn-form {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  
+}
+
+.form-login {
+  display: flex;
+  flex-direction: column;
+  gap: 1vw;
+}
 
 .img-inventory {
   border-radius: 30px;

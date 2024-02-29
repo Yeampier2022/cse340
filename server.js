@@ -57,6 +57,9 @@ app.use("/inv", inventoryRoute)
 // Detail routes
 app.use("/detail", detailCarId)
 
+// Account routes
+app.use("/account", require("./routes/accountRoute"))
+
 
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
