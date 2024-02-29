@@ -1,12 +1,26 @@
 <% if (title) { %>
-<h1 class="title-login"><%= title %></h1>
 <div class="ctn-form">
-  <form  class="form-login" action="post">
-    <label for="account_email">Email</label>
-    <input name="account_email" placeholder="Email" type="text" />
-    <label for="account_password">Password</label>
-    <input name="account_password" placeholder="Password" type="text" />
-    <button type="submit">Login</button>
+  <form class="form-login" action="post">
+    <h1 class="title-login"><%= title %></h1>
+    <label for="account_email">Email:</label>
+    <input
+      class="ipt-email"
+      name="account_email"
+      size="40"
+      placeholder="Email"
+      type="email"
+    />
+    <label for="account_password">Password:</label>
+    <input
+
+      class="ipt-password"
+      name="account_password"
+      size="40"
+      placeholder="Password"
+      type="password"
+    />
+    <button class="btn-login" size="10" type="submit">Login</button>
+    <h4 class="title-login">No account ? <a class="sign-up" href="#">Sign-up</a></h4>
   </form>
 </div>
 

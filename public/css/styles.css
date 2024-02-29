@@ -122,8 +122,8 @@ a {
   height: 34vw;
 }
 footer {
-  padding: 2vw;
   font-size: 3vw;
+  padding: 1vw 2vw;
 }
 .p-upgrade {
   padding-bottom: 2vw;
