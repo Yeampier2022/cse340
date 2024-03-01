@@ -4,6 +4,7 @@
     <h1 class="title-login"><%= title %></h1>
     <label for="account_email">Email:</label>
     <input
+    id="account_email"
       class="ipt-email"
       name="account_email"
       size="40"
@@ -12,15 +13,15 @@
     />
     <label for="account_password">Password:</label>
     <input
-
+    id="account_password"
       class="ipt-password"
       name="account_password"
       size="40"
       placeholder="Password"
       type="password"
     />
-    <button class="btn-login" size="10" type="submit">Login</button>
-    <h4 class="title-login">No account ? <a class="sign-up" href="#">Sign-up</a></h4>
+    <button class="btn-login" type="submit">Login</button>
+    <h4 class="title-login">No account ? <a class="sign-up" href="/account/register">Sign-up</a></h4>
   </form>
 </div>
 

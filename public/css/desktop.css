@@ -6,8 +6,7 @@
 }
 
 .sign-up {
-  color: #ddbea9;
-
+  text-decoration: solid;
   opacity: 1;
   transition: 0.4s;
 }
@@ -21,7 +20,7 @@
   padding: 0 1vw;
 }
 .btn-login {
-  width: 4vw;
+  width: 5vw;
   padding: 0.3vw 0vw;
   opacity: 1;
   transition: 0.4s;
@@ -31,12 +30,10 @@
  
 
 }
-input[type=email]:focus {
+input[type=email]:focus, input[type=password]:focus, input[type=text]:focus {
   border: 3px solid #cb997e;
 }
-input[type=password]:focus {
-  border: 3px solid #cb997e;
-}
+
 .btn-login:hover {
   background-color:  #ddbea9;
 }
