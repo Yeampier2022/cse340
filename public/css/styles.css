@@ -15,11 +15,61 @@ body {
   width: 100%;
   
 }
+input:required:invalid && input:required:invalid:read-write , input:focus:invalid  {
+  /* insert your own styles for invalid form input */
+  background: url("https://assets.digitalocean.com/labs/icons/exclamation-triangle-fill.svg") no-repeat 95% 50% lightsalmon;
+  background-size: 25px;
+  background-position: right top;
+ background-repeat: no-repeat;
+ }
+
+ input:required:valid {
+  background: url("https://assets.digitalocean.com/labs/icons/hand-thumbs-up.svg") no-repeat 95% 50% lightgreen;
+  background-size: 25px;
+  background-position: right top;
+ background-repeat: no-repeat;
+ }
+ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus {
+  border: 3px solid #cb997e;
+}
+.btn-login {
+  width: 15vw;
+  width: 20vw;
+  padding: 1vw 0vw;
+  opacity: 1;
+  transition: 0.4s;
+  border-radius: 5vw;
+  background-color: #cb997e;
+  font-size: 4vw;
+  cursor: pointer;
+}
+.btn-ctn {
+  padding: 2vw 0;
+  display: flex;
+  justify-content: center;
+}
+.btn-login:hover {
+  background-color:  #ddbea9;
+}
+.ipt-password {
+  padding: 1vw 0;
+  outline: none;
+}
+.ipt-email {
+  padding: 1vw 0;
+  outline: none;
+}
 
 .form-login {
   display: flex;
   flex-direction: column;
   gap: 1vw;
+  width: 60vw;
+  padding: 0 3vw;
+
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+
+
 }
 
 .img-inventory {

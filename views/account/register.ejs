@@ -29,24 +29,28 @@
             name="account_email"
             size="40"
             required
-            placeholder="Email"
+            placeholder="Enter a valid email address"
             type="email"
           />
           <label for="account_password">Password:</label>
+          <span>Passwords must be at least 12 characters and contain at least 1 number, 1 capital letter and 1 special character</span> 
           <input
             id="account_password"
             class="ipt-password"
             name="account_password"
             size="40"
             required
-            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{12,}"
+            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"
             placeholder="Password"
             type="password"
           />
-          
-          <button class="btn-login"  type="submit">Login
-            <a class="sign-up" href="/account/login"></a>
-          </button>
+          <div class="btn-ctn">
+            <button class="btn-login"  type="submit">Login
+              <a class="sign-up" href="/account/login"></a>
+            </button>
+          </div>
+         
+
           <h4 class="title-login">Do you have account? <a class="sign-up" href="/account/login">Login</a></h4>
         </form>
       </div>
