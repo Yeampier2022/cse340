@@ -15,7 +15,9 @@ async function buildLogin(req, res, next) {
     res.render("account/register", {
       title: "Register",
       nav,
+      errors: null,
     })
+    
   }
   async function registerAccount(req, res) {
     let nav = await utilities.getNav()
@@ -44,6 +46,7 @@ async function buildLogin(req, res, next) {
       res.status(501).render("account/register", {
         title: "Registration",
         nav,
+        errors: "Registration failed.",
       })
     }
   }

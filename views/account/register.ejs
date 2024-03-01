@@ -1,58 +1,70 @@
-<% if (title) { %>
-    <div class="ctn-form">
-        <form class="form-login" action="/account/register" method="post">
-          <h1 class="title-login"><%= title %></h1>
-          <label for="account_firstname">Firstname:</label>
-          <input
-            class="ipt-password"
-            id="account_firstname"
-            name="account_firstname"
-            size="40"
-            placeholder="Firstname"
-            required
-            type="text"
-          />
-          <label for="account_lastname">Lastname:</label>
-          <input
-            id="account_lastname"
-            class="ipt-password"
-            required
-            name="account_lastname"
-            size="40"
-            placeholder="Lastname"
-            type="text"
-          />
-          <label for="account_email">Email:</label>
-          <input
-          id="account_email"
-            class="ipt-email"
-            name="account_email"
-            size="40"
-            required
-            placeholder="Enter a valid email address"
-            type="email"
-          />
-          <label for="account_password">Password:</label>
-          <span>Passwords must be at least 12 characters and contain at least 1 number, 1 capital letter and 1 special character</span> 
-          <input
-            id="account_password"
-            class="ipt-password"
-            name="account_password"
-            size="40"
-            required
-            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"
-            placeholder="Password"
-            type="password"
-          />
-          <div class="btn-ctn">
-            <button class="btn-login"  type="submit">Login
-              <a class="sign-up" href="/account/login"></a>
-            </button>
-          </div>
-         
+<% if (title) { %> <% } else { res.redirect('/') } %> <%- messages() %>
 
-          <h4 class="title-login">Do you have account? <a class="sign-up" href="/account/login">Login</a></h4>
-        </form>
-      </div>
+<div class="red">
+  <% if (errors) { %>
+  <ul class="notice">
+    <% errors.array().forEach(error => { %>
+    <li><%= error.msg %></li>
+    <% }) %>
+  </ul>
 
-<% } else { res.redirect('/') } %> <%- messages() %>
+  <% } %>
+</div>
+
+<div class="ctn-form">
+  <form class="form-login" action="/account/register" method="post">
+    <h1 class="title-login"><%= title %></h1>
+    <label for="account_firstname">Firstname:</label>
+    <input
+      class="ipt-password"
+      id="account_firstname"
+      name="account_firstname"
+      size="40"
+      placeholder="Firstname"
+      required
+      type="text"
+    />
+    <label for="account_lastname">Lastname:</label>
+    <input
+      id="account_lastname"
+      class="ipt-password"
+      required
+      name="account_lastname"
+      size="40"
+      placeholder="Lastname"
+      type="text"
+    />
+    <label for="account_email">Email:</label>
+    <input
+      id="account_email"
+      class="ipt-email"
+      name="account_email"
+      size="40"
+      required
+      placeholder="Enter a valid email address"
+      type="email"
+    />
+    <label for="account_password">Password:</label>
+    <span
+      >Passwords must be at least 12 characters and contain at least 1 number, 1
+      capital letter and 1 special character</span
+    >
+    <input
+      id="account_password"
+      class="ipt-password"
+      name="account_password"
+      size="40"
+      required
+      pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"
+      placeholder="Password"
+      type="password"
+    />
+    <div class="btn-ctn">
+      <button class="btn-login" type="submit">Login</button>
+    </div>
+
+    <h4 class="title-login">
+      Do you have account? <a class="sign-up" href="/account/login">Login</a>
+    </h4>
+  </form>
+</div>
