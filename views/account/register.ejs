@@ -23,6 +23,7 @@
       placeholder="Firstname"
       required
       type="text"
+      value="<%= locals.account_firstname %>"
     />
     <label for="account_lastname">Lastname:</label>
     <input
@@ -33,6 +34,7 @@
       size="40"
       placeholder="Lastname"
       type="text"
+      value="<%= locals.account_lastname %>"
     />
     <label for="account_email">Email:</label>
     <input
@@ -43,6 +45,8 @@
       required
       placeholder="Enter a valid email address"
       type="email"
+      value="<%= locals.account_email %>"
+
     />
     <label for="account_password">Password:</label>
     <span
