@@ -39,7 +39,7 @@
             name="account_password"
             size="40"
             required
-            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{12,}$"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{12,}"
             placeholder="Password"
             type="password"
           />
@@ -51,4 +51,4 @@
         </form>
       </div>
 
-<% } else { res.redirect('/') } %> <%# messages() %>
+<% } else { res.redirect('/') } %> <% messages() %>
