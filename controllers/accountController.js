@@ -50,6 +50,36 @@ async function buildLogin(req, res, next) {
       })
     }
   }
+
+
+  async function loginAccount(req, res) {
+    let nav = await utilities.getNav()
+    const { account_email, account_password } = req.body
+  
+    const loginResult = await accountModel.loginAccount(account_email, account_password)
+  console.log(loginResult);
+    if (loginResult) {
+      req.session.account = loginResult
+      req.flash("notice", `Welcome back, ${loginResult.account_firstname}.`)
+      res.status(200).render("index", {
+        title: "Home",
+        nav,
+      })
+    } else {
+
+
+      console.log(
+        "Sorry, the login failed. Please check your email and password."
+      );
+      req.flash("notice", "Sorry, the login failed.")
+      res.status(401).render("account/login", {
+        title: "Login",
+        nav,
+        errors: "Login failed.",
+
+      })
+    }
+  }
   
   
-  module.exports = { buildLogin, buildRegister, registerAccount }
+  module.exports = { buildLogin, buildRegister, registerAccount, loginAccount }
