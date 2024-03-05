@@ -23,6 +23,37 @@ input:required:invalid && input:required:invalid:read-write , input:focus:invali
   color: #cb997e;
 
 }
+.ctn-management {
+  display: flex;
+  flex-direction: column;
+  padding: 0vw 2vw;
+  gap: 0.5vw;
+}
+.ctn-classification {
+  display: flex;
+  justify-content: center;
+  width: 100%
+}
+.form-classification {
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+  gap: 1vw;
+}
+
+.btn-classification {
+  width: 7vw;
+  padding: 0.3vw 0vw;
+  opacity: 1;
+  transition: 0.4s;
+  border-radius: 1vw;
+  background-color: #cb997e;
+  font-size: 0.8vw;
+  cursor: pointer;
+}
+.btn-classification:hover {
+  background-color: #ddbea9;
+}
 
 .form-login {
   box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
@@ -68,8 +99,8 @@ input:required:invalid && input:required:invalid:read-write , input:focus:invali
   padding: 0.2vw 0;
   outline: none;
 }
-.ipt-email:hover {
-}
+/* .ipt-email:hover {
+} */
 .ipt-password {
   padding: 0.2vw 0;
   outline: none;
