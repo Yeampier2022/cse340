@@ -18,6 +18,8 @@ const session = require("express-session")
 const pool = require('./database/')
 const bodyParser = require("body-parser")
 
+
+
 app.set("view engine", "ejs")
 app.use(expressLayouts)
 app.set("layout", "./layouts/layout")
@@ -63,8 +65,9 @@ app.use("/detail", detailCarId)
 // Account routes
 app.use("/account", require("./routes/accountRoute"))
 
+// management Vehicle managemen
 
-
+app.use("/inventory", require("./routes/managementRouter"))
 
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
