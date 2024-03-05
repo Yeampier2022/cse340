@@ -31,7 +31,7 @@
       size="40"
       placeholder="Make"
       type="text"
-      value="<%=  %>"
+      value="<%= locals.inv_make %>"
     />
 
     <label for="inv_model">Make:</label>
@@ -43,7 +43,7 @@
       size="40"
       placeholder="Model"
       type="text"
-      value="<%=  %>"
+      value="<%=  locals.inv_model  %>"
     />
 
     <label for="inv_description">Description:</label>
@@ -55,7 +55,7 @@
       size="40"
       placeholder="Description"
       type="text"
-      value="<%=  %>"
+      value="<%= locals.inv_description  %>"
     />
     <label for="inv_image">Image Path:</label>
     <input
@@ -66,7 +66,7 @@
       size="40"
       placeholder="Image Path"
       type="text"
-      value="<%=  %>"
+      value="<%= locals.inv_image  %>"
     />
     <label for="inv_thumbnail">inv thumbnall:</label>
     <input
@@ -77,7 +77,7 @@
       size="40"
       placeholder="Image Path"
       type="text"
-      value="<%=  %>"
+      value="<%= locals.inv_thumbnail  %>"
     />
 
     <label for="inv_price">Price:</label>
@@ -89,7 +89,7 @@
       size="20"
       placeholder=""
       type="number"
-      value="<%=  %>"
+      value="<%= locals.inv_price  %>"
     />
     <label for="inv_year">Year:</label>
     <input
@@ -100,7 +100,8 @@
       size="20"
       placeholder=""
       type="number"
-      value="<%=  %>"
+      value="<%= locals.inv_year  %>"
+
     />
     <label for="inv_miles">Miles:</label>
     <input
@@ -111,7 +112,8 @@
       size="20"
       placeholder=""
       type="number"
-      value="<%=  %>"
+      value="<%= locals.inv_miles  %>"
+
     />
     <label for="inv_color">Color:</label>
     <input
@@ -122,7 +124,8 @@
       size="20"
       placeholder="Color"
       type="text"
-      value="<%=  %>"
+      value="<%= locals.inv_color  %>"
+
     />
     <div class="btn-ctn">
       <button class="btn-login" type="submit">Add Vehicle</button>
