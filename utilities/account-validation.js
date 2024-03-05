@@ -112,5 +112,109 @@ validate.checkRegData = async (req, res, next) => {
     }
     next()
   }
+
+
+  validate.inventoryRules = () => {
+    return [
+      // classification_id is required
+      body("classification_id")
+        .trim()
+        .isLength({ min: 1 })
+        .withMessage("Please select a classification."),
+  
+      // inv_make is required
+      body("inv_make")
+        .trim()
+        .isLength({ min: 1 })
+        .withMessage("Please provide a make."),
+  
+      // inv_model is required
+      body("inv_model")
+        .trim()
+        .isLength({ min: 1 })
+        .withMessage("Please provide a model."),
+  
+      // inv_description is required
+      body("inv_description")
+        .trim()
+        .isLength({ min: 1 })
+        .withMessage("Please provide a description."),
+  
+      // inv_image is required
+      body("inv_image")
+        .trim()
+        .isLength({ min: 1 })
+        .withMessage("Please provide an image."),
+  
+      // inv_thumball is required
+      body("inv_thumball")
+        .trim()
+        .isLength({ min: 1 })
+        .withMessage("Please provide a thumbnail."),
+  
+      // inv_price is required
+      body("inv_price")
+        .trim()
+        .isLength({ min: 1 })
+        .withMessage("Please provide a price."),
+  
+      // inv_year is required
+      body("inv_year")
+        .trim()
+        .isLength({ min: 1 })
+        .withMessage("Please provide a year."),
+  
+      // inv_miles is required
+      body("inv_miles")
+        .trim()
+        .isLength({ min: 1 })
+        .withMessage("Please provide mileage."),
+  
+      // inv_color is required
+      body("inv_color")
+        .trim()
+        .isLength({ min: 1 })
+        .withMessage("Please provide a color."),
+    ]
+  }
+
+  validate.checkInventoryData = async (req, res, next) => {
+    let errors = validationResult(req)
+    if (!errors.isEmpty()) {
+      let nav = await utilities.getNav()
+      res.render("inventory/add-inventory", {
+        errors,
+        title: "Add Car Inventory",
+        nav,
+      })
+      return
+    }
+    next()
+  }
+
+
+  validate.classificationRules = () => {
+    return [
+      // classification_name is required
+      body("classification_name")
+        .trim()
+        .isLength({ min: 1 })
+        .withMessage("Please provide a classification name."),
+    ]
+  }
+
+  validate.checkClassificationData = async (req, res, next) => {
+    let errors = validationResult(req)
+    if (!errors.isEmpty()) {
+      let nav = await utilities.getNav()
+      res.render("inventory/add-classification", {
+        errors,
+        title: "Add Classification",
+        nav,
+      })
+      return
+    }
+    next()
+  }
   
   module.exports = validate

@@ -1,111 +1,131 @@
+<% if (title) { %> <% } else { res.redirect('/') } %> <%- messages() %>
+
+<div class="red">
+  <% if (errors) { %>
+  <ul class="notice">
+    <% errors.array().forEach(error => { %>
+    <li><%= error.msg %></li>
+    <% }) %>
+  </ul>
+
+  <% } %>
+</div>
+
 <div class="ctn-form">
-  <form class="form-login" action="" method="post">
+  <form class="form-login" action="inventory/add-inventory" method="post">
     <h1 class="title-login"><%= title %></h1>
-    <label for="">Classfication:</label>
-    <select name="" id="">
-      <option value=""></option>
-      <option value=""></option>
-      <option value=""></option>
-      <option value=""></option>
+    <label for="classification_id">Classfication:</label>
+    <select name="classification_id" id="classification_id">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
     </select>
 
-    <label for="">Make:</label>
+    <label for="inv_make">Make:</label>
     <input
-      id=""
+      id="inv_make"
       class="ipt-password"
       required
-      name=""
+      name="inv_make"
       size="40"
-      placeholder=""
+      placeholder="Make"
       type="text"
       value="<%=  %>"
     />
 
-    <label for="">Make:</label>
+    <label for="inv_model">Make:</label>
     <input
-      id=""
+      id="inv_model"
       class="ipt-password"
       required
-      name=""
+      name="inv_model"
       size="40"
-      placeholder=""
+      placeholder="Model"
       type="text"
       value="<%=  %>"
     />
 
-    <label for="">Description:</label>
+    <label for="inv_description">Description:</label>
     <input
-      id=""
+      id="inv_description"
       class="ipt-password"
       required
-      name=""
+      name="inv_description"
       size="40"
-      placeholder=""
+      placeholder="Description"
       type="text"
       value="<%=  %>"
     />
-    <label for="">Image Path:</label>
+    <label for="inv_image">Image Path:</label>
     <input
-      id=""
+      id="inv_image"
       class="ipt-password"
       required
-      name=""
+      name="inv_image"
       size="40"
-      placeholder=""
+      placeholder="Image Path"
+      type="text"
+      value="<%=  %>"
+    />
+    <label for="inv_thumball">inv thumball:</label>
+    <input
+      id="inv_thumball"
+      class="ipt-password"
+      required
+      name="inv_thumball"
+      size="40"
+      placeholder="Image Path"
       type="text"
       value="<%=  %>"
     />
 
-    <label for="">Price:</label>
+    <label for="inv_price">Price:</label>
     <input
-      id=""
+      id="inv_price"
       class="ipt-password"
       required
-      name=""
-      size="20"
-      placeholder=""
-      type="text"
-      value="<%=  %>"
-    />
-    <label for="">Year:</label>
-    <input
-      id=""
-      class="ipt-password"
-      required
-      name=""
-      size="20"
-      placeholder=""
-      type="text"
-      value="<%=  %>"
-    />
-    <label for="">Miles:</label>
-    <input
-      id=""
-      class="ipt-password"
-      required
-      name=""
+      name="inv_price"
       size="20"
       placeholder=""
       type="number"
       value="<%=  %>"
     />
-    <label for="">Color:</label>
+    <label for="inv_year">Year:</label>
     <input
-      id=""
+      id="inv_year"
       class="ipt-password"
       required
-      name=""
+      name="inv_year"
       size="20"
       placeholder=""
+      type="number"
+      value="<%=  %>"
+    />
+    <label for="inv_miles">Miles:</label>
+    <input
+      id="inv_miles"
+      class="ipt-password"
+      required
+      name="inv_miles"
+      size="20"
+      placeholder=""
+      type="number"
+      value="<%=  %>"
+    />
+    <label for="inv_color">Color:</label>
+    <input
+      id="inv_color"
+      class="ipt-password"
+      required
+      name="inv_color"
+      size="20"
+      placeholder="Color"
       type="text"
       value="<%=  %>"
     />
     <div class="btn-ctn">
       <button class="btn-login" type="submit">Add Vehicle</button>
     </div>
-
-    <h4 class="title-login">
-      Do you have account? <a class="sign-up" href="/account/login">Login</a>
-    </h4>
   </form>
 </div>

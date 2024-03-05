@@ -1,18 +1,35 @@
+<% if (title) { %> <% } else { res.redirect('/') } %> <%- messages() %>
+
+<div class="red">
+  <% if (errors) { %>
+  <ul class="notice">
+    <% errors.array().forEach(error => { %>
+    <li><%= error.msg %></li>
+    <% }) %>
+  </ul>
+
+  <% } %>
+</div>
+
 <h1>Add new classification</h1>
 
 <div class="ctn-classification">
-    <form  class="form-classification" action="">
-        <label for="">Classification model:</label>
-        <input
-        id=""
-          class="ipt-email"
-          name=""
-          size="20"
-          placeholder="model"
-          type="text"
-          value=""
-          required
-        />
-        <button class="btn-classification" type="submit">Add classification</button>
-    </form>
+  <form
+    class="form-classification"
+    action="inventory/add-classification"
+    method="post"
+  >
+    <label for="classification_name">Classification Name:</label>
+    <input
+      id="classification_name"
+      class="ipt-email"
+      name="classification_name"
+      size="20"
+      placeholder="Name"
+      type="text"
+      value="<%= locals.classification_name %>"
+      required
+    />
+    <button class="btn-classification" type="submit">Add classification</button>
+  </form>
 </div>
