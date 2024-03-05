@@ -13,23 +13,27 @@ body {
   display: flex;
   justify-content: center;
   width: 100%;
-  
 }
-input:required:invalid && input:required:invalid:read-write , input:focus:invalid  {
+input:required:invalid && input:required:invalid:read-write,
+input:focus:invalid {
   /* insert your own styles for invalid form input */
-  background: url("https://assets.digitalocean.com/labs/icons/exclamation-triangle-fill.svg") no-repeat 95% 50% lightsalmon;
+  background: url("https://assets.digitalocean.com/labs/icons/exclamation-triangle-fill.svg")
+    no-repeat 95% 50% lightsalmon;
   background-size: 25px;
   background-position: right top;
- background-repeat: no-repeat;
- }
+  background-repeat: no-repeat;
+}
 
- input:required:valid {
-  background: url("https://assets.digitalocean.com/labs/icons/hand-thumbs-up.svg") no-repeat 95% 50% lightgreen;
+input:required:valid {
+  background: url("https://assets.digitalocean.com/labs/icons/hand-thumbs-up.svg")
+    no-repeat 95% 50% lightgreen;
   background-size: 25px;
   background-position: right top;
- background-repeat: no-repeat;
- }
- input[type=email]:focus, input[type=password]:focus, input[type=text]:focus {
+  background-repeat: no-repeat;
+}
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="text"]:focus {
   border: 3px solid #cb997e;
 }
 .btn-login {
@@ -49,7 +53,7 @@ input:required:invalid && input:required:invalid:read-write , input:focus:invali
   justify-content: center;
 }
 .btn-login:hover {
-  background-color:  #ddbea9;
+  background-color: #ddbea9;
 }
 .ipt-password {
   padding: 1vw 0;
@@ -67,9 +71,9 @@ input:required:invalid && input:required:invalid:read-write , input:focus:invali
   width: 60vw;
   padding: 0 3vw;
 
-  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-
-
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
 
 .img-inventory {
@@ -105,14 +109,13 @@ a:hover {
 }
 #inv-display {
   display: grid;
-  grid-template-columns:  1fr;
+  grid-template-columns: 1fr;
   gap: 5vw;
   list-style: none;
   margin: 0;
   padding: 0;
   justify-content: center;
   justify-items: center;
-
 }
 #top-header {
   padding: 0vw 2vw;
@@ -130,7 +133,9 @@ p {
 }
 .textCard {
   position: absolute;
-  padding: 13vw 1vw;
+  padding: 6vw 1vw;
+
+
 }
 .vehiles {
   margin: 7vw;
@@ -138,7 +143,7 @@ p {
 }
 .img-card {
   display: flex;
-  justify-content: flex-start;
+  justify-content: left;
 }
 a {
   text-decoration: none;
@@ -213,20 +218,27 @@ a {
   color: black;
 }
 .welcome {
-  font-size: 4vw;
+  font-size: 2vw;
   color: black;
 }
 .background {
   margin: 0px;
 }
 @media (min-width: 200px) and (max-width: 1200px) {
+  .ctn-management {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2vw;
+    padding: 0vw 5vw;
+  }
+
   .description-p {
     padding-top: 1vw;
     font-size: 3vw;
   }
   .description-s {
     font-size: 4.2vw;
-  
   }
   .car-price {
     text-align: center;

@@ -21,7 +21,6 @@ input:required:invalid && input:required:invalid:read-write , input:focus:invali
 }
 .sign-up:hover {
   color: #cb997e;
-
 }
 .ctn-management {
   display: flex;
@@ -32,7 +31,7 @@ input:required:invalid && input:required:invalid:read-write , input:focus:invali
 .ctn-classification {
   display: flex;
   justify-content: center;
-  width: 100%
+  width: 100%;
 }
 .form-classification {
   display: flex;
@@ -40,7 +39,19 @@ input:required:invalid && input:required:invalid:read-write , input:focus:invali
   width: 20vw;
   gap: 1vw;
 }
-
+.today {
+  width: 5vw;
+  padding: 0.3vw 0vw;
+  opacity: 1;
+  transition: 0.4s;
+  border-radius: 0.8vw;
+  background-color: #cb997e;
+  font-size: 0.8vw;
+  cursor: pointer;
+}
+.font-li {
+  font-size: 1.5vw;
+}
 .btn-classification {
   width: 7vw;
   padding: 0.3vw 0vw;
@@ -56,7 +67,9 @@ input:required:invalid && input:required:invalid:read-write , input:focus:invali
 }
 
 .form-login {
-  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
   padding: 0 1vw;
   width: 20vw;
 }
@@ -67,33 +80,38 @@ input:required:invalid && input:required:invalid:read-write , input:focus:invali
   transition: 0.4s;
   border-radius: 1vw;
   background-color: #cb997e;
-  font-size: 0.90vw;
-  cursor: pointer
+  font-size: 0.9vw;
+  cursor: pointer;
 }
-input[type=email]:focus, input[type=password]:focus, input[type=text]:focus {
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="text"]:focus {
   border: 3px solid #cb997e;
 }
-input:required:invalid && input:required:invalid:read-write , input:focus:invalid  {
+input:required:invalid && input:required:invalid:read-write,
+input:focus:invalid {
   /* insert your own styles for invalid form input */
-  background: url("https://assets.digitalocean.com/labs/icons/exclamation-triangle-fill.svg") no-repeat 95% 50% lightsalmon;
+  background: url("https://assets.digitalocean.com/labs/icons/exclamation-triangle-fill.svg")
+    no-repeat 95% 50% lightsalmon;
   background-size: 25px;
   background-position: right top;
- background-repeat: no-repeat;
- }
- .btn-ctn {
+  background-repeat: no-repeat;
+}
+.btn-ctn {
   padding: 1vw 0px !important;
   display: flex;
   justify-content: center;
 }
 
- input:required:valid {
-  background: url("https://assets.digitalocean.com/labs/icons/hand-thumbs-up.svg") no-repeat 95% 50% lightgreen;
+input:required:valid {
+  background: url("https://assets.digitalocean.com/labs/icons/hand-thumbs-up.svg")
+    no-repeat 95% 50% lightgreen;
   background-size: 25px;
   background-position: right top;
- background-repeat: no-repeat;
- }
+  background-repeat: no-repeat;
+}
 .btn-login:hover {
-  background-color:  #ddbea9;
+  background-color: #ddbea9;
 }
 .ipt-email {
   padding: 0.2vw 0;
@@ -110,7 +128,6 @@ input:required:invalid && input:required:invalid:read-write , input:focus:invali
 }
 .description-s {
   font-size: 1.2vw;
-
 }
 .description-p {
   padding-top: 1vw;
@@ -122,7 +139,7 @@ input:required:invalid && input:required:invalid:read-write , input:focus:invali
 .card-image img {
   width: 100%;
 }
-.description-card  {
+.description-card {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -132,9 +149,9 @@ input:required:invalid && input:required:invalid:read-write , input:focus:invali
   display: flex;
   gap: 5vw;
 }
-.detail-card-two{
-bottom: 1.5vw;
-position: relative;
+.detail-card-two {
+  bottom: 1.5vw;
+  position: relative;
 }
 .detail-container {
   list-style: none;
@@ -186,8 +203,8 @@ a:hover {
 }
 .flex-card {
   display: flex;
-  justify-content: center;
-  padding-right: 9vw;
+  justify-content: left;
+  padding: 0vw 14vw;
 }
 .grid-one {
   grid-area: 1/2;
@@ -217,8 +234,8 @@ a:hover {
 }
 
 .vehiles {
-  width: 50vw;
-  margin: 5vw;
+  width: 30vw;
+  margin: 0;
 }
 #top-header {
   margin: 0px;
@@ -237,13 +254,14 @@ footer {
 .p-upgrade {
   font-size: 2vw;
   padding: 0;
-  margin-bottom: 0.5vw;
+  margin-bottom: 1.5vw;
   text-align: center;
 }
 .grid-columns {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3vw;
+  padding: 2.5vw 0vw;
 }
 .width-img {
   width: 5vw;
@@ -253,13 +271,15 @@ footer {
   height: 10vw;
 }
 .font-size {
-  font-size: 2vw;
-  margin-bottom: 0.5vw;
+  font-size: 1vw;
+  margin: 0;
 }
 .ul-reviews {
-  padding-top: 0px;
-  margin-top: 0px;
+  display: flex;
+  padding: 2vw 3vw;
+  flex-direction: column;
+  gap: 1.5vw;
 }
 .textCard {
-  padding: 13vw 1vw;
+  padding: 6vw 1vw;
 }
