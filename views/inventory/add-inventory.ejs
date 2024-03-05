@@ -12,7 +12,7 @@
 </div>
 
 <div class="ctn-form">
-  <form class="form-login" action="inventory/add-inventory" method="post">
+  <form class="form-login" action="/inventory/add-inventory" method="post">
     <h1 class="title-login"><%= title %></h1>
     <label for="classification_id">Classfication:</label>
     <select name="classification_id" id="classification_id">
@@ -68,12 +68,12 @@
       type="text"
       value="<%=  %>"
     />
-    <label for="inv_thumball">inv thumball:</label>
+    <label for="inv_thumbnail">inv thumbnall:</label>
     <input
-      id="inv_thumball"
+      id="inv_thumbnail"
       class="ipt-password"
       required
-      name="inv_thumball"
+      name="inv_thumbnail"
       size="40"
       placeholder="Image Path"
       type="text"

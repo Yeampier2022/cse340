@@ -147,7 +147,7 @@ validate.checkRegData = async (req, res, next) => {
         .withMessage("Please provide an image."),
   
       // inv_thumball is required
-      body("inv_thumball")
+      body("inv_thumbnail")
         .trim()
         .isLength({ min: 1 })
         .withMessage("Please provide a thumbnail."),
