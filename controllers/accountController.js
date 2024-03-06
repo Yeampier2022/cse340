@@ -73,10 +73,9 @@ async function loginAccount(req, res) {
   const { account_email, account_password } = req.body
 
   const loginResult = await accountModel.loginAccount(account_email, account_password)
-  console.log(loginResult.rows[0].account_firstname);
   if (loginResult && loginResult.rowCount > 0) {
     console.log(
-      `Congratulations, you're logged in. Welcome back, ${loginResult.account_firstname}`
+      `Congratulations, you're logged in. Welcome back, ${loginResult?.account_firstname}`
     );
     req.session.account = loginResult
     req.flash("notice", `Welcome back, ${loginResult.rows[0].account_firstname}.`)
@@ -89,7 +88,7 @@ async function loginAccount(req, res) {
       "Sorry, the login failed. Please check your email and password."
     );
     req.flash("notice", "Sorry, the login failed.")
-    res.status(401).render("account/login", {
+    res.status(501).render("account/login", {
       title: "Login",
       nav,
       errors: "Login failed.",

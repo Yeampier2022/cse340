@@ -42,7 +42,7 @@ async function addClassification(req, res, next) {
     let result = await managementModel.addClassification(classification_name)
 
 
-    if (result.rowCount != 0) {
+    if (result && result.rowCount > 0) {
         console.log("Classification added");
         req.flash("notice", "Classification added")
         res.status(201).render("inventory/add-classification"), {
@@ -77,8 +77,8 @@ async function addInventory(req, res, next) {
     let inv_color = req.body.inv_color
     let result = await managementModel.addInventory(classification_id, inv_make, inv_model, inv_description, inv_image, inv_thumbnail, inv_price, inv_year, inv_miles, inv_color)
    
-
-    if(result.rowCount != 0){
+    console.log(result);
+    if(result && result.rowCount > 0){
         console.log("Inventory added");
         req.flash("notice", "Inventory added")
         res.status(201).render("inventory/add-inventory"), {
