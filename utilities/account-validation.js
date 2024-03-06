@@ -2,6 +2,7 @@ const utilities = require(".")
 const { body, validationResult } = require("express-validator")
 const validate = {}
 const accountModel = require("../models/accounts-model")
+const managementModel = require("../models/management-model")
 const inventoryModel = require("../models/inventory-model")
 
 /*  **********************************
@@ -203,12 +204,12 @@ validate.classificationRules = () => {
       .trim()
       .isLength({ min: 1 })
       .withMessage("Please provide a classification name.")
-      // .custom(async (classification_name) => {
-      //   const classificationExists = await inventoryModel.checkExistingClassification(classification_name)
-      //   if (classificationExists) {
-      //     throw new Error("Classification exists. Please use different classification")
-      //   }
-      // })
+      .custom(async (classification_name) => {
+        const classificationExists = await managementModel.checkExistingClassification(classification_name)
+        if (classificationExists) {
+          throw new Error("Classification exists. Please use different classification")
+        }
+      })
   ]
 }
 

@@ -48,8 +48,6 @@ async function addClassification(req, res, next) {
         res.status(201).render("inventory/add-classification"), {
             title: "Add Classification",
             nav,
-            errors: null,
-
         }
     }
     else {
@@ -57,7 +55,7 @@ async function addClassification(req, res, next) {
         res.status(501).render("inventory/add-classification", {
             title: "Add Classification",
             nav,
-            errors: null,
+            errors: "Error adding classification",
         })
     }
 }
@@ -84,8 +82,6 @@ async function addInventory(req, res, next) {
         res.status(201).render("inventory/add-inventory"), {
             title: "Add Car Inventory",
             nav,
-            errors: null,
-
         }
 
     }
@@ -95,7 +91,7 @@ async function addInventory(req, res, next) {
         res.status(501).render("inventory/add-inventory", {
             title: "Add Car Inventory",
             nav,
-            errors: null,
+            errors: "Error adding inventory",
         })
     }
 }
