@@ -40,11 +40,11 @@ async function addClassification(req, res, next) {
     let result = await managementModel.addClassification(classification_name)
 
 
-    if (result) {
+    if (result && result.rowCount > 0) {
         console.log("Classification added");
-        req.flash(`notice", "Classification added ${ classification_name}`)
+        req.flash(`notice", "Classification added`)
         res.status(201).render("inventory/management", {
-            title: "Add Classification dsads",
+            title: "Add Classification",
             nav,
             errors: null,
         })

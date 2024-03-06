@@ -1,6 +1,8 @@
 
-<% if (title) { %> 
+<% if (title) { %> <% } else { res.redirect('/') } %> <%- messages() %>
   
+
+
   <h1 class="title-login"><%= title %></h1>
 
 <div class="ctn-management">
@@ -9,5 +11,4 @@
 </div>
 
   
-  <% } else { res.redirect('/') } %> <%- messages() %>
 
