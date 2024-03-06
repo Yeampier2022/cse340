@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const utilities = require('../utilities');
 const managementController = require('../controllers/managementController');
-const regValidate = require('../utilities/account-validation');
+const regValidate = require('../utilities/inventory-validation');
 
 
 // GET: /management

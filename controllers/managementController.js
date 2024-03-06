@@ -78,7 +78,7 @@ async function addInventory(req, res, next) {
     if(result && result.rowCount > 0){
         console.log("Inventory added");
         req.flash("notice", "Inventory added")
-        res.status(201).render("inventory/add-inventory", {
+        res.status(201).render("inventory/management", {
             title: "Add Car Inventory",
             nav,
             errors: null,
