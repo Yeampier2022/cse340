@@ -42,7 +42,7 @@ async function addClassification(req, res, next) {
 
     if (result && result.rowCount > 0) {
         console.log("Classification added");
-        req.flash(`notice", "Classification added`)
+        req.flash("notice", "Classification added")
         res.status(201).render("inventory/management", {
             title: "Add Classification",
             nav,

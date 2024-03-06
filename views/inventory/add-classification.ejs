@@ -1,4 +1,16 @@
-<% if (title) { %>
+<% if (title) { %> <% } else { res.redirect('/')} %> <%- messages() %>
+
+  
+  <div class="red">
+    <% if (errors) { %>
+    <ul class="notice">
+      <% errors.array().forEach(error => { %>
+      <li><%= error.msg %></li>
+      <% }) %>
+    </ul>
+  
+    <% } %>
+  </div>
   
   <h1 class="title-login"><%= title %></h1>
 
@@ -26,25 +38,7 @@
   </form>
 </div>
   
-  <%
+  
 
-} else { res.redirect('/')
-
-} 
-
-%>
-
-<%- messages() %>
-
-<div class="red">
-  <% if (errors) { %>
-  <ul class="notice">
-    <% errors.array().forEach(error => { %>
-    <li><%= error.msg %></li>
-    <% }) %>
-  </ul>
-
-  <% } %>
-</div>
 
 
