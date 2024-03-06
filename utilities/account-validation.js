@@ -213,8 +213,6 @@ validate.classificationRules = () => {
 }
 
 validate.checkClassificationData = async (req, res, next) => {
-  const { classification_name } = req.body
-  let errors = []
   errors = validationResult(req)
   if (!errors.isEmpty()) {
     console.log("errors", errors.array());
@@ -223,7 +221,6 @@ validate.checkClassificationData = async (req, res, next) => {
       errors,
       title: `Add Classification`,
       nav,
-      classification_name,
     })
     return
   }
