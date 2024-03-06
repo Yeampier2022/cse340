@@ -1,6 +1,13 @@
-<h1>Vehicle management</h1>
+
+<% if (title) { %> 
+  
+  <h1 class="title-login"><%= title %></h1>
 
 <div class="ctn-management">
   <a href="/inventory/add-classification">Add New Classification</a>
   <a href="/inventory/add-inventory">Add New Vehicle</a>
 </div>
+
+  
+  <% } else { res.redirect('/') } %> <%- messages() %>
+

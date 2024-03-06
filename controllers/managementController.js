@@ -8,8 +8,6 @@ async function buildManagement(req, res, next) {
     res.render("inventory/management", {
         title: "Management",
         nav,
-        errors: null,
-
     })
 }
 
@@ -42,17 +40,17 @@ async function addClassification(req, res, next) {
     let result = await managementModel.addClassification(classification_name)
 
 
-    if (result && result.rowCount > 0) {
+    if (result) {
         console.log("Classification added");
-        req.flash("notice", "Classification added")
-        res.status(201).render("inventory/add-classification"), {
-            title: "Add Classification",
+        req.flash(`notice", "Classification added ${ classification_name}`)
+        res.status(201).render("inventory/management"), {
+            title: "Add Classification dsads",
             nav,
         }
     }
     else {
         req.flash("notice", "Error adding classification")
-        res.status(501).render("inventory/add-classification", {
+        res.status(501).render("inventory/management", {
             title: "Add Classification",
             nav,
             errors: "Error adding classification",

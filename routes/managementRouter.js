@@ -7,7 +7,7 @@ const regValidate = require('../utilities/account-validation');
 
 // GET: /management
 
-router.get('/', utilities.handleError(managementController.buildManagement));
+router.get('/management', utilities.handleError(managementController.buildManagement));
 
 // add new classificaiton
 
