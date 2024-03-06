@@ -1,9 +1,8 @@
 <% if (title) { %>
   
-  <h1>Add new classification</h1>
+  <h1 class="title-login"><%= title %></h1>
 
 <div class="ctn-classification">
-  <h1 class="title-login"><%= title %></h1>
 
   <form
     class="form-classification"
@@ -19,7 +18,9 @@
       placeholder="Name"
       type="text"
       value="<%= locals.classification_name %>"
+
       required
+
     />
     <button class="btn-classification" type="submit">Add classification</button>
   </form>
