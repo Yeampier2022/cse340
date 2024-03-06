@@ -4,6 +4,9 @@
   background-color: #cb997e;
   padding: 2vw 8vw;
 }
+.red li{
+ color: red;
+}
 input:required:invalid && input:required:invalid:read-write , input:focus:invalid  {
   /* insert your own styles for invalid form input */
   background: url("https://assets.digitalocean.com/labs/icons/exclamation-triangle-fill.svg") no-repeat 95% 50% lightsalmon;

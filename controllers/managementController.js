@@ -46,6 +46,7 @@ async function addClassification(req, res, next) {
         res.status(201).render("inventory/management", {
             title: "Add Classification dsads",
             nav,
+            errors: null,
         })
     }
     else {
@@ -80,6 +81,7 @@ async function addInventory(req, res, next) {
         res.status(201).render("inventory/add-inventory", {
             title: "Add Car Inventory",
             nav,
+            errors: null,
         })
 
     }

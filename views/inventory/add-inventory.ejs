@@ -1,6 +1,15 @@
 <% if (title) { %> <% } else { res.redirect('/') } %> <%- messages() %>
 
+<div class="red">
+  <% if (errors) { %>
+  <ul class="notice">
+    <% errors.array().forEach(error => { %>
+    <li><%= error.msg %></li>
+    <% }) %>
+  </ul>
 
+  <% } %>
+</div>
 
 <div class="ctn-form">
   <form class="form-login" action="/inventory/add-inventory" method="post">
@@ -124,13 +133,3 @@
 </div>
 
 
-<div class="red">
-  <% if (errors) { %>
-  <ul class="notice">
-    <% errors.array().forEach(error => { %>
-    <li><%= error.msg %></li>
-    <% }) %>
-  </ul>
-
-  <% } %>
-</div>
