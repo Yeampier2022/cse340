@@ -50,7 +50,7 @@ async function addClassification(req, res, next) {
     }
     else {
         req.flash("notice", "Error adding classification")
-        res.status(501).render("inventory/management", {
+        res.status(501).render("inventory/add-classification", {
             title: "Add Classification",
             nav,
             errors: "Error adding classification",
