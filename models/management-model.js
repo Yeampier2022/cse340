@@ -19,6 +19,16 @@ async function addClassification(classification_name){
     }
   }
 
+ async function classificationName(){
+    try {
+      const sql = "SELECT classification_name FROM classification"
+      return await pool.query(sql)
+    } catch (error) {
+      return error.message
+    }
+  }
+  
+
 async function addInventory(classification_id, inv_make, inv_model, inv_description, inv_image, inv_thumbnail, inv_price, inv_year, inv_miles, inv_color){
     try {
       const sql = "INSERT INTO inventory (classification_id, inv_make, inv_model, inv_description, inv_image, inv_thumbnail, inv_price, inv_year, inv_miles, inv_color) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *"
@@ -28,4 +38,4 @@ async function addInventory(classification_id, inv_make, inv_model, inv_descript
     }
   }
 
-module.exports = { addClassification, addInventory, checkExistingClassification}
+module.exports = { addClassification, addInventory,classificationName, checkExistingClassification}
