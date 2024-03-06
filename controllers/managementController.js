@@ -43,10 +43,10 @@ async function addClassification(req, res, next) {
     if (result) {
         console.log("Classification added");
         req.flash(`notice", "Classification added ${ classification_name}`)
-        res.status(201).render("inventory/management"), {
+        res.status(201).render("inventory/management", {
             title: "Add Classification dsads",
             nav,
-        }
+        })
     }
     else {
         req.flash("notice", "Error adding classification")
@@ -77,10 +77,10 @@ async function addInventory(req, res, next) {
     if(result && result.rowCount > 0){
         console.log("Inventory added");
         req.flash("notice", "Inventory added")
-        res.status(201).render("inventory/add-inventory"), {
+        res.status(201).render("inventory/add-inventory", {
             title: "Add Car Inventory",
             nav,
-        }
+        })
 
     }
 
