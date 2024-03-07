@@ -210,12 +210,13 @@ main {
   padding: 0vw 2vw;
 }
 .li-navigation {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 0px;
   margin: 0px;
   list-style: none;
-  gap: 1vw;
+  gap: 5vw;
   text-align: center;
   height: 12vw;
   background-color: #ddbea9;
