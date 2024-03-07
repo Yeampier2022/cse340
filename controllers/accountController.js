@@ -11,6 +11,15 @@ async function buildLogin(req, res, next) {
   })
 }
 
+async function buildManagement() {
+  let nav = await utilities.getNav()
+  res.render("inventory/management", {
+    title: "Management Account",
+    nav,
+  })
+
+}
+
 async function buildRegister(req, res, next) {
   let nav = await utilities.getNav()
   res.render("account/register", {
@@ -74,13 +83,10 @@ async function loginAccount(req, res) {
 
   const loginResult = await accountModel.loginAccount(account_email, account_password)
   if (loginResult && loginResult.rowCount > 0) {
-    console.log(
-      `Congratulations, you're logged in. Welcome back, ${loginResult?.account_firstname}`
-    );
     req.session.account = loginResult
-    req.flash("notice", `Welcome back, ${loginResult.rows[0].account_firstname}.`)
-    res.status(200).render("index", {
-      title: "Home",
+    req.flash("notice", `Welcome New, ${loginResult.rows[0].account_firstname}.`)
+    res.status(200).render("account/management", {
+      title: "Management Account",
       nav,
     })
   } else {
@@ -94,7 +100,18 @@ async function loginAccount(req, res) {
       errors: "Login failed.",
     })
   }
+
+  try {
+    if (await bcrypt.compare(account_password, accountData.account_password)) {
+    delete accountData.account_password
+    const accessToken = jwt.sign(accountData, process.env.ACCESS_TOKEN_SECRET, { expiresIn: 3600 * 1000 })
+    res.cookie("jwt", accessToken, { httpOnly: true, maxAge: 3600 * 1000 })
+    return res.redirect("/account/")
+    }
+   } catch (error) {
+    return new Error('Access Forbidden')
+   }
 }
 
 
-module.exports = { buildLogin, buildRegister, registerAccount, loginAccount }
+module.exports = { buildLogin, buildRegister, registerAccount, buildManagement, loginAccount }
