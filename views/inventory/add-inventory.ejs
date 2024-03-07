@@ -11,26 +11,15 @@
   <% } %>
 </div>
 
-
-
-<% for (let i = 0; i < classification_name.length; i++) { %>
-  <p><%= classification_name[i].classification_name %></p>
-<% } %>
-
-
 <div class="ctn-form">
   <form class="form-login" action="/inventory/add-inventory" method="post">
     <h1 class="title-login"><%= title %></h1>
     <label for="classification_id">Classfication:</label>
     <select name="classification_id" id="classification_id">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="75">75</option>
-
+      <% for (let i = 0; i < classification_name.length; i++) { %>
+        <option value="<%= classification_name[i].classification_id %>"><%= classification_name[i].classification_name %></option>
+      <% } %>
     </select>
-
     <label for="inv_make">Make:</label>
     <input
       id="inv_make"

@@ -18,10 +18,9 @@ async function addClassification(classification_name){
       return error.message
     }
   }
-
-  async function getClassifications(){
+  async function getClassifications() {
     try {
-      const sql = "SELECT classification_name FROM classification"
+      const sql = "SELECT classification_id, classification_name FROM classification"
       return await pool.query(sql)
     } catch (error) {
       return error.message
