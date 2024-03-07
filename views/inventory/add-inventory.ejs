@@ -11,6 +11,13 @@
   <% } %>
 </div>
 
+
+
+<% for (let i = 0; i < classification_name.length; i++) { %>
+  <p><%= classification_name[i].classification_name %></p>
+<% } %>
+
+
 <div class="ctn-form">
   <form class="form-login" action="/inventory/add-inventory" method="post">
     <h1 class="title-login"><%= title %></h1>

@@ -19,7 +19,7 @@ async function addClassification(classification_name){
     }
   }
 
- async function classificationName(){
+  async function getClassifications(){
     try {
       const sql = "SELECT classification_name FROM classification"
       return await pool.query(sql)
@@ -27,7 +27,6 @@ async function addClassification(classification_name){
       return error.message
     }
   }
-  
 
 async function addInventory(classification_id, inv_make, inv_model, inv_description, inv_image, inv_thumbnail, inv_price, inv_year, inv_miles, inv_color){
     try {
@@ -38,4 +37,4 @@ async function addInventory(classification_id, inv_make, inv_model, inv_descript
     }
   }
 
-module.exports = { addClassification, addInventory,classificationName, checkExistingClassification}
+module.exports = { addClassification, getClassifications, addInventory, checkExistingClassification}

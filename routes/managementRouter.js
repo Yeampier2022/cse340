@@ -15,7 +15,8 @@ router.get('/add-classification', utilities.handleError(managementController.bui
 
 // add new car inventory
 
-router.get("/add-inventory", utilities.handleError(managementController.buildAddInventory));
+router.get("/add-inventory", utilities.handleError(managementController.getClassifications),
+utilities.handleError(managementController.buildAddInventory));
 
 
 router.post(
