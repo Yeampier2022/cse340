@@ -6,5 +6,6 @@ const utilities = require("../utilities/")
 
 
 router.get("/type/:classificationId", invController.buildByClassificationId);
+router.get("/getInventory/:classification_id", utilities.handleError(invController.getInventoryJSON))
 
 module.exports = router;

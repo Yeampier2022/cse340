@@ -6,6 +6,12 @@ const Util = {}
 /* ************************
  * Constructs the nav HTML unordered list
  ************************** */
+
+
+Util.buildClassificationList = async function () {
+ 
+}
+
 Util.getNav = async function (req, res, next) {
 
   let data = await invModel.getClassifications()
