@@ -4,10 +4,12 @@ const utilities = require('../utilities');
 const managementController = require('../controllers/managementController');
 const regValidate = require('../utilities/inventory-validation');
 
+const invController = require('../controllers/invController');
+
 
 // GET: /management
 
-router.get('/management', utilities.handleError(managementController.buildManagement));
+router.get('/management', utilities.handleError(invController.buildManagementView));
 
 // add new classificaiton
 

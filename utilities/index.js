@@ -125,7 +125,28 @@ Util.checkJWTToken = (req, res, next) => {
     return res.redirect("/account/login")
   }
  }
+ 
 
+
+ Util.buildByClassificationList = async function () {
+  let data = await invModel.getClassifications()
+  console.log(data.rows)
+  console.log("fdshdfs")
+  let list = '<select name="classification_id" class="classificationList" required>'
+  list += '<option value="">Select a classification</option>'
+  data.rows.forEach((row) => {
+    list += '<option value="' + row.classification_id + '">' + row.classification_name + '</option>'
+  })
+  list += '</select>'
+  return list
+}
+Util.checkAccountType = async function (req, res, next) {
+  if (res.locals.accountData.account_type === "Admin") {
+    next()
+  } else {
+    res.status(403).send("Access Denied")
+  }
+}
 
 
 module.exports = Util

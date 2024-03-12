@@ -4,15 +4,6 @@ const managementModel = require("../models/management-model");
 
 const managementController = {}
 
-managementController.buildManagement = async function buildManagement(req, res, next) {
-    let nav = await utilities.getNav()
-    const classificationSelect = await utilities.buildClassificationList()
-    res.render("inventory/management", {
-        title: "Management",
-        nav,
-        classificationSelect
-    })
-};
 
 managementController.getClassifications = async function (req, res, next) {
     const data = await managementModel.getClassifications()

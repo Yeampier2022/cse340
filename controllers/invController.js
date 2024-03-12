@@ -42,5 +42,33 @@ invCont.buildDetailCarId = async function (req, res, next) {
  
 }
 
+/* ***************************
+build vichicle add view
+  * ************************** */
+
+invCont.buildManagementView = async function (req, res, next) {
+  let nav = await utilities.getNav()
+  const classification_select = await utilities.buildByClassificationList()
+  res.render("./inventory/management", {
+    title: "vichicle management",
+    nav,
+    errors: null,
+    classification_select
+  })
+}
+
+invCont.getInventoryJSON = async function (req, res, next) {
+  const classification_id = req.params.classificationId
+  const invData = await invModel.getInventoryByClassificationId(classification_id)
+  console.log(invData);
+  (classification_id)
+  if (invData[0].inv_id) {
+    res.json(invData)
+  }
+  else {
+    res.json({ "error": "No data" })
+  }
+}
+
 
 module.exports = invCont
