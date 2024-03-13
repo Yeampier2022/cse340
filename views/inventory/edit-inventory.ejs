@@ -1,0 +1,109 @@
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else {
+      res.redirect('/')
+    } %>
+
+    <%- messages() %>
+    <% if (errors) { %>
+      <ul class="notice">
+     <% errors.array().forEach(error => { %>
+       <li><%= error.msg %></li>
+    <%  }) %>
+     </ul>
+    <% } %>
+
+    <div id="register">
+      <form action="/inv/update" method="post">
+        <div class="form-wrapper">
+          <div class="form-header">
+            <h2>Update Vehicle</h2>
+            
+          </div>
+          <div class="form-content">
+            <span class="tip">* Required</span>
+
+            <div class="form-element">
+              <label>
+                  <span>Classification</span><span class="required">*</span>
+                  <% if(classificationSelect) { %>
+                   <%- classificationSelect %>
+                  <% } %>
+              </label>
+            </div>
+
+            <div class="form-element">
+              <label>
+                  <span>Make:</span><span class="required">*</span>
+                  <input aria-label="Vehicle Make" type="text" name="inv_make" required aria-required="true" value="<%= locals.inv_make %>" pattern="[A-Za-z ]{3,20}" >
+              </label>
+            </div>
+
+            <div class="form-element">
+              <label>
+                  <span>Model:</span><span class="required">*</span>
+                  <input aria-label="Vehicle Model" type="text" name="inv_model" required aria-required="true" value="<%= locals.inv_model %>" pattern="[A-Za-z ]{3,20}">
+              </label>
+            </div>
+
+            <div class="form-element">
+              <label>
+                  <span>Year:</span><span class="required">*</span>
+                  <input aria-label="Vehicle Year" type="text" name="inv_year" required aria-required="true" value="<%= locals.inv_year %>" pattern="19[\d]{2}|20\d{2}">
+              </label>
+            </div>
+
+            <div class="form-element">
+              <label>
+                  <span>Description:</span><span class="required">*</span>
+                  <textarea aria-label="Vehicle Description" rows="4" cols="80" name="inv_description" required aria-required="true"><%= locals.inv_description %></textarea>
+              </label>
+            </div>
+
+            <div class="form-element">
+              <label>
+                  <span>Image:</span><span class="required">*</span>
+                  <input aria-label="Vehicle Image file" type="text" name="inv_image" required aria-required="true" value="<%= locals.inv_image %>">
+              </label>
+            </div>
+
+            <div class="form-element">
+              <label>
+                  <span>Thumbnail:</span><span class="required">*</span>
+                  <input aria-label="Vehicle Thumbnail" type="text" name="inv_thumbnail" required aria-required="true" value="<%= locals.inv_thumbnail %>">
+              </label>
+            </div>
+
+            <div class="form-element">
+              <label>
+                  <span>Price:</span><span class="required">*</span>
+                  <input aria-label="Vehicle Price" type="text" name="inv_price" required aria-required="true" value="<%= locals.inv_price %>" pattern="\d{4,6}">
+              </label>
+            </div>
+
+            <div class="form-element">
+              <label>
+                  <span>Milage:</span><span class="required">*</span>
+                  <input aria-label="Vehicle Milage" type="text" name="inv_miles" required aria-required="true" value="<%= locals.inv_miles %>" pattern="\d{1,6}">
+              </label>
+            </div>
+
+            <div class="form-element">
+              <label>
+                  <span>Color:</span><span class="required">*</span>
+                  <input aria-label="Vehicle Color" type="text" name="inv_color" required aria-required="true" value="<%= locals.inv_color %>" pattern=".{3,100}">
+              </label>
+            </div>
+
+            <div class="form-submit">
+                <input id="submitButton" type="submit" name="submit" value="Update Vehicle">
+            </div>
+          </div>
+          <div class="form-footer">
+            <input type="hidden" name="inv_id"
+            <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
+            <% } %>>
+          </div>
+        </div>
+        </form>
+      </div>

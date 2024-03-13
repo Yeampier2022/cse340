@@ -8,10 +8,8 @@ const utilities = require("../utilities/")
 router.get("/type/:classificationId", invController.buildByClassificationId);
 router.get("/getInventory/:classification_id",
 utilities.handleError(invController.getInventoryJSON),
-utilities.checkAccountType
+utilities.checkAccountType);
 
-
-
-)
+router.get("/edit/:inv_id",  invController.editInventoryView);
 
 module.exports = router;

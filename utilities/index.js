@@ -135,15 +135,6 @@ Util.checkJWTToken = (req, res, next) => {
   })
   classificationList += '</select>'
   return classificationList
-
-
-    
-
-
-
-
-
-  
 }
 Util.checkAccountType = async function (req, res, next) {
   if (res.locals.accountData.account_type === "Admin" || res.locals.accountData.account_type === "Employee") {
@@ -151,6 +142,22 @@ Util.checkAccountType = async function (req, res, next) {
   } else {
     res.status(403).send("Access Denied")
   }
+}
+
+Util.buildClassificationList  = async function (inv_id){
+
+  let data = await invModel.getClassifications()
+  let classificationList = '<select id="classificationList" name="classification_id">'
+  classificationList += '<option value="">Choose a vehicle classification...</option>'
+  data.rows.forEach(row => {
+    if (row.classification_id === inv_id) {
+      classificationList += '<option value="' + row.classification_id + '" selected>' + row.classification_name + '</option>'
+    } else {
+      classificationList += '<option value="' + row.classification_id + '">' + row.classification_name + '</option>'
+    }
+  })
+  classificationList += '</select>'
+  return classificationList
 }
 
 
