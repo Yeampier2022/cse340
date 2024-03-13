@@ -128,14 +128,22 @@ Util.checkJWTToken = (req, res, next) => {
  Util.buildByClassificationList = async function () {
   let data = await invModel.getClassifications()
   console.log(data.rows[0].classification_id)
-  console.log("fdshdfs")
-  let list = '<select name="classificationList" class="classificationList" required>'
-  list += '<option value="">Select a classification</option>'
-  data.rows.forEach((row) => {
-    list += '<option value="' + row.classification_id + '">' + row.classification_name + '</option>'
+  let classificationList = '<select id="classificationList" name="classification_id">'
+  classificationList += '<option value="">Choose a vehicle classification...</option>'
+  data.rows.forEach(row => {
+    classificationList += '<option value="' + row.classification_id + '">' + row.classification_name + '</option>'
   })
-  list += '</select>'
-  return list
+  classificationList += '</select>'
+  return classificationList
+
+
+    
+
+
+
+
+
+  
 }
 Util.checkAccountType = async function (req, res, next) {
   if (res.locals.accountData.account_type === "Admin" || res.locals.accountData.account_type === "Employee") {

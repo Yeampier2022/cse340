@@ -48,11 +48,11 @@ build vichicle add view
 
 invCont.buildManagementView = async function (req, res, next) {
   let nav = await utilities.getNav()
-  const classification_select = await utilities.buildByClassificationList()
+  const classificationList = await utilities.buildByClassificationList()
   res.render("./inventory/management", {
     title: "vichicle management",
     nav,
-    classification_select,
+    classificationList,
     errors: null
   })
 }
