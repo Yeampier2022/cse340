@@ -52,8 +52,8 @@ invCont.buildManagementView = async function (req, res, next) {
   res.render("./inventory/management", {
     title: "vichicle management",
     nav,
-    errors: null,
-    classification_select
+    classification_select,
+    errors: null
   })
 }
 

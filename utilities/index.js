@@ -8,9 +8,6 @@ const Util = {}
  ************************** */
 
 
-Util.buildClassificationList = async function () {
- 
-}
 
 Util.getNav = async function (req, res, next) {
 
