@@ -58,9 +58,10 @@ invCont.buildManagementView = async function (req, res, next) {
 }
 
 invCont.getInventoryJSON = async function (req, res, next) {
-  const classification_id = req.params.classificationId
+  const classification_id = req.params.classification_id
   const invData = await invModel.getInventoryByClassificationId(classification_id)
-  console.log(invData);
+  console.log("classification_id", classification_id);
+  console.log("invData", invData);
   (classification_id)
   if (invData[0].inv_id) {
     res.json(invData)

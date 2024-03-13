@@ -7,8 +7,11 @@ const utilities = require("../utilities/")
 
 router.get("/type/:classificationId", invController.buildByClassificationId);
 router.get("/getInventory/:classification_id",
-    utilities.checkAccountType,
+utilities.handleError(invController.getInventoryJSON),
+utilities.checkAccountType
 
-utilities.handleError(invController.getInventoryJSON))
+
+
+)
 
 module.exports = router;
