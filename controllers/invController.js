@@ -53,7 +53,12 @@ invCont.updateInventory = async function (req, res, next) {
     console.log("updateResult", updateResult);
     const itemName = updateResult[0].inv_make + " " + updateResult[0].inv_model
     req.flash("notice", `The ${itemName} was successfully updated.`)
-    res.redirect("inventory/management")
+    res.status(201).render("inventory/edit-inventory"), {
+      title: "Edit " + itemName,
+      nav,
+      errors: null,
+    
+    }
   } else {
     const classificationSelect = await utilities.buildClassificationSelect(classification_id)
     const itemName = `${inv_make} ${inv_model}`
