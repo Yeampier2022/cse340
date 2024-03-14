@@ -46,12 +46,7 @@
               </label>
             </div>
 
-            <div class="form-element">
-              <label>
-                  <span>Year:</span><span class="required">*</span>
-                  <input aria-label="Vehicle Year" type="text" name="inv_year" required aria-required="true" value="<%= locals.inv_year %>" pattern="19[\d]{2}|20\d{2}">
-              </label>
-            </div>
+            
 
             <div class="form-element">
               <label>
@@ -77,14 +72,20 @@
             <div class="form-element">
               <label>
                   <span>Price:</span><span class="required">*</span>
-                  <input aria-label="Vehicle Price" type="text" name="inv_price" required aria-required="true" value="<%= locals.inv_price %>" pattern="\d{4,6}">
+                  <input aria-label="Vehicle Price" type="number" name="inv_price" required aria-required="true" value="<%= locals.inv_price %>" pattern="\d{4,6}">
+              </label>
+            </div>
+            <div class="form-element">
+              <label>
+                  <span>Year:</span><span class="required">*</span>
+                  <input aria-label="Vehicle Year" type="number" name="inv_year" required aria-required="true" value="<%= locals.inv_year %>" pattern="19[\d]{2}|20\d{2}">
               </label>
             </div>
 
             <div class="form-element">
               <label>
                   <span>Milage:</span><span class="required">*</span>
-                  <input aria-label="Vehicle Milage" type="text" name="inv_miles" required aria-required="true" value="<%= locals.inv_miles %>" pattern="\d{1,6}">
+                  <input aria-label="Vehicle Milage" type="number" name="inv_miles" required aria-required="true" value="<%= locals.inv_miles %>" pattern="\d{1,6}">
               </label>
             </div>
 
@@ -100,7 +101,7 @@
             </div>
           </div>
           <div class="form-footer">
-            <input type="hidden" name="inv_id"
+            <input type="number" name="inv_id"
             <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
             <% } %>>
           </div>

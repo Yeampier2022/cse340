@@ -14,8 +14,6 @@ router.get("/edit/:inv_id",  utilities.handleError(invController.editInventoryVi
 
 router.post(
     "/update", 
-    regValidate.addVehicleRules(),
-    regValidate.checkUpdateVehicleData,
     utilities.handleError(invController.updateInventory)
 )
 

@@ -24,6 +24,7 @@ invCont.updateInventory = async function (req, res, next) {
   let nav = await utilities.getNav()
   const {
     inv_id,
+    classification_id,
     inv_make,
     inv_model,
     inv_description,
@@ -32,48 +33,50 @@ invCont.updateInventory = async function (req, res, next) {
     inv_price,
     inv_year,
     inv_miles,
-    inv_color,
-    classification_id,
+    inv_color
   } = req.body
   const updateResult = await invModel.updateInventory(
-    inv_id,  
-    inv_make,
-    inv_model,
-    inv_description,
-    inv_image,
-    inv_thumbnail,
-    inv_price,
-    inv_year,
-    inv_miles,
-    inv_color,
-    classification_id
+    Number(inv_id),
+    Number(classification_id),
+    String(inv_make),
+    String(inv_model),
+    String(inv_description),
+    String(inv_image),
+    String(inv_thumbnail),
+    Number(inv_price),
+    Number(inv_year),
+    Number(inv_miles),
+    String(inv_color)
   )
 
   if (updateResult) {
-    const itemName = updateResult.inv_make + " " + updateResult.inv_model
+    console.log("updateResult", updateResult);
+    const itemName = updateResult[0].inv_make + " " + updateResult[0].inv_model
     req.flash("notice", `The ${itemName} was successfully updated.`)
-    res.redirect("/inv/")
+    res.redirect("inventory/management")
   } else {
     const classificationSelect = await utilities.buildClassificationSelect(classification_id)
     const itemName = `${inv_make} ${inv_model}`
-    req.flash("notice", "Sorry, the insert failed.")
+    req.flash("notice", "Sorry, the update failed.")
     res.status(501).render("inventory/edit-inventory", {
     title: "Edit " + itemName,
     nav,
-    classificationSelect: classificationSelect,
     errors: null,
+    classificationSelect: classificationSelect,
     inv_id,
+    classification_id,
     inv_make,
     inv_model,
-    inv_year,
     inv_description,
     inv_image,
     inv_thumbnail,
     inv_price,
+    inv_year,
     inv_miles,
-    inv_color,
-    classification_id
-    })
+    inv_color
+
+  }
+    )
   }
 }
 
@@ -118,8 +121,7 @@ invCont.getInventoryJSON = async function (req, res, next) {
   const classification_id = req.params.classification_id
   const invData = await invModel.getInventoryByClassificationId(classification_id)
   console.log("classification_id", classification_id);
-  console.log("invData", invData);
-  (classification_id)
+  console.log("invData", invData);  (classification_id)
   if (invData[0].inv_id) {
     res.json(invData)
   }
