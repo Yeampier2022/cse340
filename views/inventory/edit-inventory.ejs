@@ -41,14 +41,10 @@
     pattern="[A-Za-z ]{3,20}"
   />
     <label for="inv_description">Description </label>
-      <input
-        size="40"
-        type="text"
-        name="inv_description"
-        class="ipt-password"
-        required
-        value="<%= locals.inv_description %>" 
-      />
+    <textarea  
+      required name="inv_description" id="inv_description" cols="30" rows="10" >
+          <%= locals.inv_description %>
+    </textarea>
     <label for="inv_image" >Image </label>
       <input
       class="ipt-password"
