@@ -9,7 +9,7 @@
 <% } %>
 
 <div class="ctn-form">
-  <form class="form-login" action="/inv/update" method="post">
+  <form id="updateForm" class="form-login" action="/inv/update" method="post">
     <h1 class="title-login"><%= title %></h1>
 
     <label>
@@ -40,14 +40,14 @@
     value="<%= locals.inv_model %>"
     pattern="[A-Za-z ]{3,20}"
   />
-
     <label for="inv_description">Description </label>
       <input
         size="40"
+        type="text"
         name="inv_description"
         class="ipt-password"
         required
-        <%="locals.inv_description"%>
+        value="<%= locals.inv_description %>" 
       />
     <label for="inv_image" >Image </label>
       <input
@@ -55,12 +55,9 @@
         type="text"
         name="inv_image"
         size="40"
-
         required
         value="<%= locals.inv_image %>"
       />
-    
-
     <label for="inv_thumbnail">Thumbnail</label>
       <input
         type="text"
@@ -70,8 +67,6 @@
         required
         value="<%= locals.inv_thumbnail %>"
       />
-    
-
     <label for="inv_price">Price:</label>
       <input
         type="number"
@@ -94,7 +89,6 @@
         pattern="19[\d]{2}|20\d{2}"
       />
     
-
     <label for="inv_miles">Milage </label>
       <input
         type="number"
@@ -122,14 +116,25 @@
       <div class="btn-ctn">
 
     <button
-      id="submitButton"
+      id="updateForm"
       type="submit"
       name="submit"
       class="btn-login" 
     >Vehicle Update </button>
+
+
+
+
+
+
     </div>
     <input type="hidden" name="inv_id"
 <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
 <% } %>>
   </form>
 </div>
+
+<noscript>JavaScript must be enabled to use this page.</noscript>
+
+
+<script src="../../js/inv-update.js"></script>
