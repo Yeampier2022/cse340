@@ -8,13 +8,11 @@ const invController = require('../controllers/invController');
 
 // GET: /management
 
-router.get('/management', utilities.handleError(managementController.buildManagement));
 
 // add new classificaiton
 
 router.get('/add-classification', utilities.handleError(managementController.buildAddClassification));
 
-router.get("/getInventory/:classification_id", utilities.handleError(invController.getInventoryJSON))
 
 // add new car inventory
 

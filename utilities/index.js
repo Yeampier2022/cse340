@@ -12,7 +12,6 @@ Util.getNav = async function (req, res, next) {
 
   let list = `<ul class="li-navigation">`
   list += '<li class="li-a"><a href="/" title="Home page">Home</a></li>'
-  list += '<li> <a href="/inventory/management">NewCar</a></li>'
   data.rows.forEach((row) => {
     list += "<li>"
     list +=
