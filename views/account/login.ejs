@@ -1,4 +1,9 @@
 <% if (title) { %>
+
+
+<% } else { res.redirect('/') } %> <%- messages() %>
+
+
 <div class="ctn-form">
   <form  id="loginForm" class="form-login" action="/account/login" method="post">
     <h1 class="title-login"><%= title %></h1>
@@ -35,5 +40,3 @@
     <h4 class="title-login">No account ? <a class="sign-up" href="/account/register">Sign-up</a></h4>
   </form>
 </div>
-
-<% } else { res.redirect('/') } %> <%- messages() %>

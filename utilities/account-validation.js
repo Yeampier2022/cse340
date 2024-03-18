@@ -87,7 +87,13 @@ validate.loginRules = () => {
       .trim()
       .isEmail()
       .normalizeEmail()
-      .withMessage("A valid email is required."),
+      .withMessage("A valid email is required.")
+      .custom(async (account_email) => {
+        const emailExists = await accountModel.checkExistingEmail(account_email)
+        if (!emailExists) {
+          throw new Error("Email does not exist. Please register.")
+        }
+      }),
 
     // password is required
     body("account_password")
@@ -103,13 +109,16 @@ validate.loginRules = () => {
 * */
 
 validate.checkLoginData = async (req, res, next) => {
-  let errors = validationResult(req)
+  const { account_email } = req.body
+  let errors = []
+  errors = validationResult(req)
   if (!errors.isEmpty()) {
     let nav = await utilities.getNav()
     res.render("account/login", {
       errors,
-      title: "Login",
+      title: "Registration",
       nav,
+      account_email,
     })
     return
   }

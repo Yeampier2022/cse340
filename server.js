@@ -21,9 +21,6 @@ const cookieParser = require("cookie-parser")
 
 
 
-app.set("view engine", "ejs")
-app.use(expressLayouts)
-app.set("layout", "./layouts/layout")
 
 
 /* ***********************
@@ -39,16 +36,28 @@ app.use(session({
   saveUninitialized: true,
   name: 'sessionId',
 }))
-app.use(cookieParser())
+
 
 app.use(require('connect-flash')())
 app.use(function(req, res, next){
   res.locals.messages = require('express-messages')(req, res)
   next()
 })
-
+// unit 4, process the form data
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+// unit 5, login activity
+app.use(cookieParser())
+// unit 5, process login activity
+app.use(utilities.checkJWTToken)
+
+
+// view engine and layout
+
+app.set("view engine", "ejs")
+app.use(expressLayouts)
+app.set("layout", "./layouts/layout")
+
 
 /* ***********************
  * Routes

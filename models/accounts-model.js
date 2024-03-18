@@ -35,7 +35,7 @@ async function getAccountByEmail(account_email, account_password){
     const sql = "SELECT * FROM account WHERE account_email = $1 AND account_password = $2"
     return await pool.query(sql, [account_email, account_password])
   } catch (error) {
-    return error.message
+    return new Error("No matching email found")
   }
 }
 module.exports = { registerAccount, checkExistingEmail, getAccountByEmail};
