@@ -1,8 +1,4 @@
-<% if (title) { %>
+<% if (title) { %> <% } else { res.redirect('/') } %>
 
-
-    <% } else { res.redirect('/') } %> 
-  
-
-    <h1 class="title-login"><%= title %></h1>
-    <a href="">Edit account info</a>
+<h1 class="title-login"><%= title %></h1>
+<a href="">Edit account info</a>

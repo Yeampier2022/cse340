@@ -6,9 +6,11 @@ const managementController = {}
 
 managementController.buildManagement = async function buildManagement(req, res, next) {
     let nav = await utilities.getNav()
+    const classificationSelect = await utilities.buildClassificationList()
     res.render("inventory/management", {
         title: "Management",
         nav,
+        classificationSelect
     })
 };
 
@@ -51,6 +53,8 @@ managementController.addClassification = async function addClassification(req, r
     let nav = await utilities.getNav()
     let classification_name = req.body.classification_name
     let result = await managementModel.addClassification(classification_name)
+    const classificationSelect = await utilities.buildClassificationList()
+
 
 
     if (result && result.rowCount > 0) {
@@ -60,6 +64,7 @@ managementController.addClassification = async function addClassification(req, r
             title: "Add Classification",
             nav,
             errors: null,
+            classificationSelect
         })
     }
     else {
@@ -89,6 +94,7 @@ async function addInventory(req, res, next) {
     let inv_miles = req.body.inv_miles
     let inv_color = req.body.inv_color
     let result = await managementModel.addInventory(classification_id, inv_make, inv_model, inv_description, inv_image, inv_thumbnail, inv_price, inv_year, inv_miles, inv_color)
+    const classificationSelect = await utilities.buildClassificationList()
 
     console.log(result);
     if (result && result.rowCount > 0) {
@@ -98,6 +104,7 @@ async function addInventory(req, res, next) {
             title: "Add Car Inventory",
             nav,
             errors: null,
+            classificationSelect
         })
 
     }
