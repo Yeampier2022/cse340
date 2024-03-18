@@ -83,6 +83,7 @@ async function accountLogin(req, res) {
   const { account_email, account_password } = req.body
   const accountData = await accountModel.getAccountByEmail(account_email)
   if (!accountData) {
+    console.log("No accountData");
    req.flash("notice", "Please check your credentials and try again.")
    res.status(400).render("account/login", {
     title: "Login",
@@ -93,12 +94,6 @@ async function accountLogin(req, res) {
   return
   }
   try {
-    console.log(accountData);
-    // toma de la constante accountData.account_password y la compara con account_password colocarlo en un console.log para ver que trae
-
-    console.log(accountData.account_password, account_password);
-
-
    if (await bcrypt.compare(account_password, accountData.account_password)) {
    delete accountData.account_password
    console.log("delete accountData.account_password", accountData.account_password);
