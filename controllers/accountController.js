@@ -2,6 +2,8 @@ const utilities = require("../utilities/")
 const bcrypt = require("bcryptjs")
 
 const accountModel = require("../models/accounts-model")
+const jwt = require("jsonwebtoken")
+require("dotenv").config()
 
 async function buildLogin(req, res, next) {
   let nav = await utilities.getNav()
@@ -26,7 +28,6 @@ async function registerAccount(req, res) {
 
 
 
-  let hasdhedPassword = await bcrypt.hash(account_password, 10)
 
   try {
     hasdhedPassword = await bcrypt.hash(account_password, 10)
@@ -68,33 +69,39 @@ async function registerAccount(req, res) {
 }
 
 
-async function loginAccount(req, res) {
+async function accountLogin(req, res) {
   let nav = await utilities.getNav()
   const { account_email, account_password } = req.body
 
-  const loginResult = await accountModel.loginAccount(account_email, account_password)
-  if (loginResult && loginResult.rowCount > 0) {
-    console.log(
-      `Congratulations, you're logged in. Welcome back, ${loginResult?.account_firstname}`
-    );
-    req.session.account = loginResult
-    req.flash("notice", `Welcome back, ${loginResult.rows[0].account_firstname}.`)
-    res.status(200).render("index", {
-      title: "Home",
-      nav,
-    })
-  } else {
-    console.log(
-      "Sorry, the login failed. Please check your email and password."
-    );
-    req.flash("notice", "Sorry, the login failed.")
-    res.status(501).render("account/login", {
+  const accountData  = await accountModel.getAccountByEmail(account_email, account_password)
+
+
+  if (!accountData) {
+    req.flash("notice", "Please check your credentials and try again.")
+    res.status(401).render("account/login", {
       title: "Login",
       nav,
-      errors: "Login failed.",
+      err,
+      errors: null,
+      account_email
     })
+    return
   }
+  try {
+    if (await bcrypt.compare(account_password, accountData.account_password)) {
+    delete accountData.account_password
+    const accessToken = jwt.sign(accountData, process.env.ACCESS_TOKEN_SECRET, { expiresIn: 3600 })
+    if(process.env.NODE_ENV === 'development') {
+      res.cookie("jwt", accessToken, { httpOnly: true, maxAge: 3600 * 1000 })
+      } else {
+        res.cookie("jwt", accessToken, { httpOnly: true, secure: true, maxAge: 3600 * 1000 })
+      }
+    return res.redirect("/account/")
+    }
+   } catch (error) {
+    return new Error('Access Forbidden')
+   }
 }
 
 
-module.exports = { buildLogin, buildRegister, registerAccount, loginAccount }
+module.exports = { buildLogin, buildRegister, registerAccount, accountLogin }

@@ -17,6 +17,7 @@ const detailCarId = require("./routes/detailCarId")
 const session = require("express-session")
 const pool = require('./database/')
 const bodyParser = require("body-parser")
+const cookieParser = require("cookie-parser")
 
 
 
@@ -38,6 +39,7 @@ app.use(session({
   saveUninitialized: true,
   name: 'sessionId',
 }))
+app.use(cookieParser())
 
 app.use(require('connect-flash')())
 app.use(function(req, res, next){
