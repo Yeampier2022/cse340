@@ -1,113 +1,111 @@
-<form  id="updateForm" class="form-login" action="/inv/update" method="post">
 
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else {
+      res.redirect('/')
+    } %>
 
-  <label for="classification_id">Classfication:</label>
+    <%- messages() %>
+    <% if (errors) { %>
+      <ul class="notice">
+     <% errors.array().forEach(error => { %>
+       <li><%= error.msg %></li>
+    <%  }) %>
+     </ul>
+    <% } %>
 
-  <label for="inv_make">Make:</label>
-  <input
-    id="inv_make"
-    class="ipt-password"
-    required
-    name="inv_make"
-    size="40"
-    placeholder="Make"
-    type="text"
-    value="<%= locals.inv_make %>"
-  />
-  <label for="inv_model">Model:</label>
-    <input
-      id="inv_model"
-      class="ipt-password"
-      required
-      name="inv_model"
-      size="40"
-      placeholder="Model"
-      type="text"
-      value="<%=  locals.inv_model  %>"
-    />
-    <label for="inv_description">Description:</label>
-    <input
-      id="inv_description"
-      class="ipt-password"
-      required
-      name="inv_description"
-      size="40"
-      placeholder="Description"
-      type="text"
-      value="<%= locals.inv_description  %>"
-    />
-    <label for="inv_image">Image Path:</label>
-    <input
-      id="inv_image"
-      class="ipt-password"
-      required
-      name="inv_image"
-      size="40"
-      placeholder="Image Path"
-      type="text"
-      value="<%= locals.inv_image  %>"
-    />
-    <label for="inv_thumbnail">inv thumbnall:</label>
-    <input
-      id="inv_thumbnail"
-      class="ipt-password"
-      required
-      name="inv_thumbnail"
-      size="40"
-      placeholder="Image Path"
-      type="text"
-      value="<%= locals.inv_thumbnail  %>"
-    />
-    <label for="inv_price">Price:</label>
-    <input
-      id="inv_price"
-      class="ipt-password"
-      required
-      name="inv_price"
-      placeholder="Price"
-      type="number"
-      value="<%= locals.inv_price  %>"
-    />
-    <label for="inv_year">Year:</label>
-    <input
-      id="inv_year"
-      class="ipt-password"
-      required
-      name="inv_year"
-      placeholder="Year"
-      type="number"
-      value="<%= locals.inv_year  %>"
+    <div id="register">
+      <form action="/inv/update" method="post">
+        <div class="form-wrapper">
+          <div class="form-header">
+            <h2>Update Vehicle</h2>
+            
+          </div>
+          <div class="form-content">
+            <span class="tip">* Required</span>
 
-    />
-    <label for="inv_miles">Miles:</label>
-    <input
-      id="inv_miles"
-      class="ipt-password"
-      required
-      name="inv_miles"
-      placeholder="Miles"
-      type="number"
-      value="<%= locals.inv_miles  %>"
+            <div class="form-element">
+              <label>
+                  <span>Classification</span><span class="required">*</span>
+                  <% if(classificationSelect) { %>
+                   <%- classificationSelect %>
+                  <% } %>
+              </label>
+            </div>
 
-    />
-    <label for="inv_color">Color:</label>
-    <input
-      id="inv_color"
-      class="ipt-password"
-      required
-      name="inv_color"
-      size="20"
-      placeholder="Color"
-      type="text"
-      value="<%= locals.inv_color  %>"
+            <div class="form-element">
+              <label>
+                  <span>Make:</span><span class="required">*</span>
+                  <input aria-label="Vehicle Make" type="text" name="inv_make" required aria-required="true" value="<%= locals.inv_make %>" pattern="[A-Za-z ]{3,20}" >
+              </label>
+            </div>
 
-    />
-  <input type="hidden" name="inv_id"
-  <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
-  <% } %>>
+            <div class="form-element">
+              <label>
+                  <span>Model:</span><span class="required">*</span>
+                  <input aria-label="Vehicle Model" type="text" name="inv_model" required aria-required="true" value="<%= locals.inv_model %>" pattern="[A-Za-z ]{3,20}">
+              </label>
+            </div>
 
+            
 
-    <button type="submit">Update Vehicle</button>
+            <div class="form-element">
+              <label>
+                  <span>Description:</span><span class="required">*</span>
+                  <textarea aria-label="Vehicle Description" rows="4" cols="80" name="inv_description" required aria-required="true"><%= locals.inv_description %></textarea>
+              </label>
+            </div>
 
-    
-</form>
+            <div class="form-element">
+              <label>
+                  <span>Image:</span><span class="required">*</span>
+                  <input aria-label="Vehicle Image file" type="text" name="inv_image" required aria-required="true" value="<%= locals.inv_image %>">
+              </label>
+            </div>
+
+            <div class="form-element">
+              <label>
+                  <span>Thumbnail:</span><span class="required">*</span>
+                  <input aria-label="Vehicle Thumbnail" type="text" name="inv_thumbnail" required aria-required="true" value="<%= locals.inv_thumbnail %>">
+              </label>
+            </div>
+
+            <div class="form-element">
+              <label>
+                  <span>Price:</span><span class="required">*</span>
+                  <input aria-label="Vehicle Price" type="number" name="inv_price" required aria-required="true" value="<%= locals.inv_price %>" pattern="\d{4,6}">
+              </label>
+            </div>
+            <div class="form-element">
+              <label>
+                  <span>Year:</span><span class="required">*</span>
+                  <input aria-label="Vehicle Year" type="number" name="inv_year" required aria-required="true" value="<%= locals.inv_year %>" pattern="19[\d]{2}|20\d{2}">
+              </label>
+            </div>
+
+            <div class="form-element">
+              <label>
+                  <span>Milage:</span><span class="required">*</span>
+                  <input aria-label="Vehicle Milage" type="number" name="inv_miles" required aria-required="true" value="<%= locals.inv_miles %>" pattern="\d{1,6}">
+              </label>
+            </div>
+
+            <div class="form-element">
+              <label>
+                  <span>Color:</span><span class="required">*</span>
+                  <input aria-label="Vehicle Color" type="text" name="inv_color" required aria-required="true" value="<%= locals.inv_color %>" pattern=".{3,100}">
+              </label>
+            </div>
+
+            <div class="form-submit">
+                <input id="submitButton" type="submit" name="submit" value="Update Vehicle">
+            </div>
+          </div>
+          <div class="form-footer">
+            <input type="number" name="inv_id"
+            <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
+            <% } %>>
+          </div>
+        </div>
+        </form>
+      </div>
