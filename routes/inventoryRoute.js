@@ -11,7 +11,7 @@ const managementController = require('../controllers/managementController');
 router.get('/', utilities.handleError(managementController.buildManagement));
 router.get("/type/:classificationId", invController.buildByClassificationId);
 router.get("/getInventory/:classification_id", utilities.handleError(invController.getInventoryJSON))
-router.get("edit/:inv_id", utilities.handleError(invController.buildEditInventory))
+router.get("/edit/:inv_id", utilities.handleError(invController.buildEditInventory))
 
 router.post("/update/", invController.updateInventory)
 
