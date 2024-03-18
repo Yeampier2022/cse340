@@ -37,7 +37,7 @@ async function registerAccount(req, res) {
 
 
 
-
+  let hasdhedPassword
   try {
     hasdhedPassword = await bcrypt.hash(account_password, 10)
   }
@@ -53,7 +53,7 @@ async function registerAccount(req, res) {
     account_firstname,
     account_lastname,
     account_email,
-    account_password
+    hasdhedPassword
   )
 
   if (regResult) {

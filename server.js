@@ -36,16 +36,16 @@ app.use(session({
   saveUninitialized: true,
   name: 'sessionId',
 }))
-
-
+// unit 4, process the form data
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+// Express Messages Middleware
 app.use(require('connect-flash')())
 app.use(function(req, res, next){
   res.locals.messages = require('express-messages')(req, res)
   next()
 })
-// unit 4, process the form data
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+
 // unit 5, login activity
 app.use(cookieParser())
 // unit 5, process login activity
