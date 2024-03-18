@@ -114,4 +114,29 @@ validate.inventoryRules = () => {
   }
   
 
+  validate.deleteAccountRules = () => {
+    return [
+      // account_id is required
+      body("account_id")
+        .trim()
+        .isLength({ min: 1 })
+        .withMessage("Account ID is required."),
+    ]
+  }
+
+  validate.checkDeleteAccountData = async (req, res, next) => {
+    errors = validationResult(req)
+    if (!errors.isEmpty()) {
+      console.log("errors", errors.array());
+      let nav = await utilities.getNav()
+      res.render("inventory/management", {
+        errors,
+        title: `Management`,
+        nav,
+      })
+      return
+    }
+    next()
+  }
+
 module.exports = validate

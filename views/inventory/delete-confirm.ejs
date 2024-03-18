@@ -1,0 +1,67 @@
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else {
+      res.redirect('/')
+    } %>
+  
+    <%- messages() %>
+    <% if (errors) { %>
+      <ul class="notice">
+     <% errors.array().forEach(error => { %>
+       <li><%= error.msg %></li>
+    <%  }) %>
+     </ul>
+    <% } %>
+  
+    <div id="register">
+        <form id="regForm" action="/inv/delete" method="post">
+        <div class="form-wrapper">
+          <div class="form-header">
+            <h2>Delete Vehicle</h2>
+          </div>
+          <div class="form-content">
+            <input type="hidden" name="inv_id" value="<%= locals.inv_id %>" >
+  
+            <div class="form-element">
+              <label>
+                  <span>Make:</span>
+                  <input aria-label="Vehicle Make" type="text" name="inv_make" value="<%= locals.inv_make %>" readonly >
+              </label>
+            </div>
+  
+            <div class="form-element">
+              <label>
+                  <span>Model:</span>
+                  <input aria-label="Vehicle Make" type="text" name="inv_model" value="<%= locals.inv_model %>" readonly >
+              </label>
+            </div>
+  
+            <div class="form-element">
+              <label>
+                  <span>Year:</span>
+                  <input aria-label="Vehicle Make" type="text" name="inv_year" value="<%= locals.inv_year %>" readonly >
+              </label>
+            </div>
+  
+  
+  
+            <div class="form-element">
+              <label>
+                  <span>Price:</span>
+                  <input aria-label="Vehicle Make" type="text" name="inv_price" value="<%= locals.inv_price %>" readonly >
+              </label>
+            </div>
+  
+  
+  
+            <div class="form-submit">
+                <button id="submitButton" type="submit" name="submit" value="Delete Vehicle">Delete Vehicle </button>
+                <button id="cancelButton" type="cancel" name="cancel" value="Cancel">Cancel</button>
+            </div>
+          </div>
+          <div class="form-footer">
+            <p>Confirm Deletion - The delete is permanent.</p>
+          </div>
+        </div>
+        </form>
+      </div>
