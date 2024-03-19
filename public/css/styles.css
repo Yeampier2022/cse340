@@ -3,6 +3,30 @@
 body {
   font-family: "Noto Sans JP", sans-serif;
 }
+.ctn-delete {
+  display: flex;
+  justify-content: space-around;
+}
+.ctn-delete {
+  display: flex;
+  padding: 1vw 0vw;
+  justify-content: space-around;
+
+}
+.btn-cancel{
+  width: 15vw;
+  width: 20vw;
+  padding: 1vw 0vw;
+  opacity: 1;
+  transition: 0.4s;
+  border-radius: 5vw;
+  background-color: coral;
+  font-size: 4vw;
+  cursor: pointer;
+}
+.btn-cancel:hover {
+  background-color: #ddbea9;
+}
 .color-body {
   background-color: #ffe8d6;
 }

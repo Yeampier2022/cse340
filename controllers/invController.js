@@ -145,7 +145,7 @@ invCont.buildDeleteInventory = async function(req, res, next){
   const itemData = await invModel.getInventoryByInvId(inv_id)
   const itemName = itemData[0]?.inv_make + " " + itemData[0]?.inv_model
   res.render("inventory/delete-confirm", {
-    title: "Delete" + itemName,
+    title: "Delete " + itemName,
     nav,
     errors: null,
     inv_id: itemData[0].inv_id,
