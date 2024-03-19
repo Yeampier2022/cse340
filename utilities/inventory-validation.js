@@ -116,11 +116,11 @@ validate.inventoryRules = () => {
 
   validate.deleteAccountRules = () => {
     return [
-      // account_id is required
-      body("account_id")
+      // inv_id is required
+      body("inv_id")
         .trim()
         .isLength({ min: 1 })
-        .withMessage("Account ID is required."),
+        .withMessage("Please select a vehicle to delete."),
     ]
   }
 
