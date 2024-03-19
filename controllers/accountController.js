@@ -122,5 +122,32 @@ async function accountLogin(req, res) {
   }
  }
 
+ async function updateAccount(req, res) {
+  let nav = await utilities.getNav()
+  const { account_firstname, account_lastname, account_email, account_password } = req.body
+  const accountData = await accountModel.updateAccount(
+    account_firstname,
+    account_lastname,
+    account_email,
+    account_password
+  )
+  if (accountData) {
+    req.flash("notice", "Account updated.")
+    res.status(201).render("account/management", {
+      title: "Account Management",
+      nav,
+      accountData: accountData.account_firstname,
+    })
+  } else {
+    req.flash("notice", "Sorry, the update failed.")
+    res.redirect("account", {
+      title: "Update Account",
+      nav,
+      errors: "Update failed.",
+      accountData: accountData.account_firstname,
+    })
+  }
+}
 
-module.exports = { buildLogin, buildUpdateAccount, buildRegister, registerAccount, accountLogin, accountManagement }
+
+module.exports = { buildLogin,updateAccount, buildUpdateAccount, buildRegister, registerAccount, accountLogin, accountManagement }

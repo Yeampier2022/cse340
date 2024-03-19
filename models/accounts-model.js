@@ -2,20 +2,20 @@ const pool = require("../database/")
 
 
 
-async function registerAccount(account_firstname, account_lastname, account_email, account_password){
-    try {
-      const sql = "INSERT INTO account (account_firstname, account_lastname, account_email, account_password, account_type) VALUES ($1, $2, $3, $4, 'Client') RETURNING *"
-      return await pool.query(sql, [account_firstname, account_lastname, account_email, account_password])
-    } catch (error) {
-      return error.message
-    }
+async function registerAccount(account_firstname, account_lastname, account_email, account_password) {
+  try {
+    const sql = "INSERT INTO account (account_firstname, account_lastname, account_email, account_password, account_type) VALUES ($1, $2, $3, $4, 'Client') RETURNING *"
+    return await pool.query(sql, [account_firstname, account_lastname, account_email, account_password])
+  } catch (error) {
+    return error.message
   }
+}
 
 
-  /* **********************
- *   Check for existing email
- * ********************* */
-async function checkExistingEmail(account_email){
+/* **********************
+*   Check for existing email
+* ********************* */
+async function checkExistingEmail(account_email) {
   try {
     const sql = "SELECT * FROM account WHERE account_email = $1"
     const email = await pool.query(sql, [account_email])
@@ -30,7 +30,7 @@ async function checkExistingEmail(account_email){
 * check if account_email and account_password exists in the database 
 * */
 
-async function getAccountByEmail(account_email, account_password){
+async function getAccountByEmail(account_email, account_password) {
   try {
     const result = await pool.query(
       'SELECT account_id, account_firstname, account_lastname, account_email, account_type, account_password FROM account WHERE account_email = $1',
@@ -42,16 +42,16 @@ async function getAccountByEmail(account_email, account_password){
   }
 }
 
-async function editAccount(account_id, account_firstname, account_lastname, account_email){
+async function updateAccount(account_id, account_firstname, account_lastname, account_email, account_password) {
   try {
-    const sql = "UPDATE account SET account_firstname = $1, account_lastname = $2, account_email = $3 WHERE account_id = $4"
-    return await pool.query(sql, [account_firstname, account_lastname, account_email, account_id])
+    const sql = "UPDATE account SET account_firstname = $1, account_lastname = $2, account_email = $3, account_password = 4$ WHERE account_id = $5"
+    return await pool.query(sql, [account_firstname, account_lastname, account_email, account_password, account_id])
   } catch (error) {
     return error.message
   }
 }
 
-async function changePassword(account_id, account_password){
+async function changePassword(account_id, account_password) {
   try {
     const sql = "UPDATE account SET account_password = $1 WHERE account_id = $2"
     return await pool.query(sql, [account_password, account_id])
@@ -59,5 +59,5 @@ async function changePassword(account_id, account_password){
     return error.message
   }
 }
-module.exports = { registerAccount,editAccount, changePassword, checkExistingEmail, getAccountByEmail};
+module.exports = { registerAccount, updateAccount, changePassword, checkExistingEmail, getAccountByEmail };
 

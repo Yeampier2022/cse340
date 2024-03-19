@@ -11,7 +11,7 @@
   <% } %>
 </div>
 
-<form class="account" action="">
+<form class="account" action="/account/update" method="post">
   <h1><%= title %></h1>
   <label for="account_firstname">First Name:</label>
   <input
@@ -41,9 +41,24 @@
     type="email"
   />
   <button class="btn-login" type="submit">update</button>
+  <h1>Update Password</h1>
+  <span
+  >Passwords must be at least 12 characters and contain at least 1 number, 1
+  capital letter and 1 special character</span
+>
+<p>*note your original password will be changend</p>
+<label for="account_password">Password:</label>
+<input
+  name="account_password"
+  id="account_password"
+  class="ipt-password"
+  type="password"
+  placeholder="Password"
+/>
+  
 </form>
 
-  <form class="account"action="">
+  <!-- <form class="account"action="">
     <h1>Update Password</h1>
     <span
       >Passwords must be at least 12 characters and contain at least 1 number, 1
@@ -61,4 +76,4 @@
     <div>
       <button class="btn-login" type="submit">Change</button>
     </div>
-  </form>
+  </form> -->
