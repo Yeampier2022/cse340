@@ -20,10 +20,10 @@ invValidate.inventoryRules(),
 )
 router.post(
     "/delete",
-    utilities.checkLogin, 
-    utilities.checkAccountType,
-    invValidate.deleteAccountRules(),
-    invValidate.checkDeleteAccountData,
+    //utilities.checkLogin, 
+    //utilities.checkAccountType,
+    //invValidate.deleteAccountRules(),
+    //invValidate.checkDeleteAccountData,
     utilities.handleError(invController.deleteInventory)
   );
   

@@ -120,7 +120,7 @@ invCont.editInventoryView = async function (req, res, next) {
   const itemData = await invModel.getInventoryById(inv_id)
   const classificationSelect = await utilities.buildClassificationList(itemData.classification_id)
   const itemName = `${itemData[0].inv_make}`
-  res.render("./inventory/edit-inventory", {
+  res.render("inventory/edit-inventory", {
     title: "Edit " + itemName,
     nav,
     classificationSelect: classificationSelect,
@@ -141,66 +141,30 @@ invCont.editInventoryView = async function (req, res, next) {
 
 invCont.buildDeleteInventory = async function(req, res, next){
   const inv_id = parseInt(req.params.inv_id)
-  const classificationSelect = await utilities.buildClassificationList(classification_id)
   let nav = await utilities.getNav()
-  console.log("inv_id", inv_id);
-  const data = await invModel.getInventoryByInvId(inv_id)
-  console.log(data);
-  const itemData = data[0]
-  const itemName = itemData.inv_make + " " + itemData.inv_model
-  res.render("./inventory/delete-confirm", {
-    title: "Delete " + itemName,
+  const itemData = await invModel.getInventoryByInvId(inv_id)
+  const itemName = itemData[0]?.inv_make + " " + itemData[0]?.inv_model
+  res.render("inventory/delete-confirm", {
+    title: "Delete" + itemName,
     nav,
     errors: null,
-    inv_id: itemData.inv_id,
-    inv_make: itemData.inv_make,
-    inv_model: itemData.inv_model,
-    inv_year: itemData.inv_year,
-    inv_price: itemData.inv_price,
-    classificationSelect: classificationSelect,
-    classification_id: itemData.classification_id
-    
-    
+    inv_id: itemData[0].inv_id,
+    inv_make: itemData[0].inv_make,
+    inv_model: itemData[0].inv_model,
+    inv_year: itemData[0].inv_year,
+    inv_price: itemData[0].inv_price,
   })
 }
 
 invCont.deleteInventory = async function(req, res, next){
-  const {
-    inv_id,
-  } = req.body
-  console.log("inv_id", inv_id);
-  let nav = await utilities.getNav()
-  const data = await invModel.deleteInventory(inv_id)
-  console.log("data", data);
-  const itemData = data[0]
-  const itemName = itemData.inv_make + " " + itemData.inv_model
-  const deleteResult = await invModel.deleteInventory(
-    inv_id,  
-  )
+  const inv_id = parseInt(req.body.inv_id)
+  const deleteResult = await invModel.deleteInventory(inv_id)
   if (deleteResult) {
-  const classificationSelect  = await utilities.buildClassificationList(itemData.classification_id)
-    console.log("deleteResult", deleteResult);
-
-    req.flash("notice", `The ${itemName} was successfully delted.`)
-    res.render("/inv"), {
-      title: "Delete " + itemName,
-      nav,
-      errors: null,
-      classificationSelect:  classificationSelect,
-      classification_id: itemData.classification_id,
-
-
-      inv_id,
-    }
+    req.flash("notice", `The delted was successfully .`)
+    res.redirect("/inv")
   } else {
     req.flash("notice", "Sorry, the delete failed.")
-    res.status(501).render("./inventory/delete-inventory", {
-    title: "Delete " + itemName,
-    nav,
-    errors: null,
-    classificationSelect: classificationSelect,
-    inv_id,
-    })
+    res.redirect(501)(`/inv/delete/${inv_id}`)
   }
 }
 
