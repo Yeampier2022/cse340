@@ -4,19 +4,29 @@
   background-color: #cb997e;
   padding: 2vw 8vw;
 }
-.red li{
- color: red;
+.red li {
+  color: red;
 }
-input:required:invalid && input:required:invalid:read-write , input:focus:invalid  {
+input:required:invalid && input:required:invalid:read-write,
+input:focus:invalid {
   /* insert your own styles for invalid form input */
-  background: url("https://assets.digitalocean.com/labs/icons/exclamation-triangle-fill.svg") no-repeat 95% 50% lightsalmon;
+  background: url("https://assets.digitalocean.com/labs/icons/exclamation-triangle-fill.svg")
+    no-repeat 95% 50% lightsalmon;
   background-size: 25px;
- }
+}
 
- input:required:valid {
-  background: url("https://assets.digitalocean.com/labs/icons/hand-thumbs-up.svg") no-repeat 95% 50% lightgreen;
+input:required:valid {
+  background: url("https://assets.digitalocean.com/labs/icons/hand-thumbs-up.svg")
+    no-repeat 95% 50% lightgreen;
   background-size: 25px;
- }
+}
+.account {
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+  gap: 1vw;
+  padding: 1vw 1vw;
+}
 .sign-up {
   text-decoration: solid;
   opacity: 1;
@@ -94,7 +104,7 @@ input:required:invalid && input:required:invalid:read-write , input:focus:invali
   font-size: 0.9vw;
   cursor: pointer;
 }
-.btn-cancel{
+.btn-cancel {
   width: 5vw;
   padding: 0.3vw 0vw;
   opacity: 1;

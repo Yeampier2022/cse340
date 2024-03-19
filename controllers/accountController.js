@@ -32,6 +32,14 @@ async function buildRegister(req, res, next) {
   })
 
 }
+async function buildUpdateAccount(req, res, next) {
+  let nav = await utilities.getNav()
+  res.render("account/update", {
+    title: "Update Account",
+    nav,
+    errors: null,
+  })
+}
 async function registerAccount(req, res) {
   let nav = await utilities.getNav()
   const { account_firstname, account_lastname, account_email, account_password } = req.body
@@ -97,14 +105,17 @@ async function accountLogin(req, res) {
   try {
    if (await bcrypt.compare(account_password, accountData.account_password)) {
    delete accountData.account_password
-   console.log("delete accountData.account_password", accountData.account_password);
    const accessToken = jwt.sign(accountData, process.env.ACCESS_TOKEN_SECRET, { expiresIn: 3600 })
    if(process.env.NODE_ENV === 'development') {
      res.cookie("jwt", accessToken, { httpOnly: true, maxAge: 3600 * 1000 })
      } else {
        res.cookie("jwt", accessToken, { httpOnly: true, secure: true, maxAge: 3600 * 1000 })
      }
-   return res.redirect("/account/")
+   return res.redirect("/account/"), {
+    title: "Account Management",
+      nav,
+      accountData: accountData.account_firstname,
+    }
    }
   } catch (error) {
    return new Error('Access Forbidden')
@@ -112,4 +123,4 @@ async function accountLogin(req, res) {
  }
 
 
-module.exports = { buildLogin, buildRegister, registerAccount, accountLogin, accountManagement }
+module.exports = { buildLogin, buildUpdateAccount, buildRegister, registerAccount, accountLogin, accountManagement }

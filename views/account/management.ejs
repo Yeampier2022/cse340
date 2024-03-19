@@ -1,4 +1,13 @@
-<% if (title) { %> <% } else { res.redirect('/') } %>
+<% if (title) { %>
+    
+    <% } else { res.redirect('/') } %>
+<h1><%= title  %></h1>
+<h1>Welcome <%= accountData.account_firstname %></h1>
+<h3>You're logged in </h3>
+<a href="/account/update">Edit account info</a>
+<h1>Inventory Managemet </h1>
+<a href="/inv">Managemet Inventory</a>
 
-<h1 class="title-login"><%= title %></h1>
-<a href="">Edit account info</a>
+
+
+

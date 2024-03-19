@@ -1,0 +1,64 @@
+<% if (title) { %> <% } else { res.redirect('/') } %> <%- messages() %>
+
+<div class="red">
+  <% if (errors) { %>
+  <ul class="notice">
+    <% errors.array().forEach(error => { %>
+    <li><%= error.msg %></li>
+    <% }) %>
+  </ul>
+
+  <% } %>
+</div>
+
+<form class="account" action="">
+  <h1><%= title %></h1>
+  <label for="account_firstname">First Name:</label>
+  <input
+    value="<%= locals.account_firstname %>"
+    name="account_firstname"
+    id="account_firstname"
+    class="ipt-password"
+    placeholder="First Name"
+    type="text"
+  />
+  <label for="account_lastname">Last Name:</label>
+  <input
+    value="<%= locals.account_lastname %>"
+    name="account_lastname"
+    id="account_lastname"
+    class="ipt-password"
+    placeholder="Last Name"
+    type="text"
+  />
+  <label for="account_email">Email:</label>
+  <input
+    value="<%= locals.account_email %>"
+    name="account_email"
+    id="account_email"
+    class="ipt-password"
+    placeholder="Email"
+    type="email"
+  />
+  <button class="btn-login" type="submit">update</button>
+</form>
+
+  <form class="account"action="">
+    <h1>Update Password</h1>
+    <span
+      >Passwords must be at least 12 characters and contain at least 1 number, 1
+      capital letter and 1 special character</span
+    >
+    <p>*note your original password will be changend</p>
+    <label for="account_password">Password:</label>
+    <input
+      name="account_password"
+      id="account_password"
+      class="ipt-password"
+      type="password"
+      placeholder="Password"
+    />
+    <div>
+      <button class="btn-login" type="submit">Change</button>
+    </div>
+  </form>
