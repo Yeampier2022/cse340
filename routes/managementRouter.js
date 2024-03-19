@@ -11,28 +11,7 @@ const invController = require('../controllers/invController');
 
 // add new classificaiton
 
-router.get('/add-classification', utilities.handleError(managementController.buildAddClassification));
 
-
-// add new car inventory
-
-router.get("/add-inventory", utilities.handleError(managementController.getClassifications),
-utilities.handleError(managementController.buildAddInventory));
-
-
-router.post(
-  "/add-inventory",
-  regValidate.inventoryRules(),
-  regValidate.checkInventoryData,
-  utilities.handleError(managementController.addInventory)
-)
-
-router.post(
-  "/add-classification",
-  regValidate.classificationRules(),
-  regValidate.checkClassificationData,
-  utilities.handleError(managementController.addClassification)
-)
 
 
 module.exports = router;

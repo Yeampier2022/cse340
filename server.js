@@ -78,7 +78,6 @@ app.use("/account", require("./routes/accountRoute"))
 
 // management Vehicle managemen
 
-app.use("/inventory", require("./routes/managementRouter"))
 
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {

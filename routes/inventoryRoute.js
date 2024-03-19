@@ -7,8 +7,18 @@ const managementController = require('../controllers/managementController');
 const invValidate = require("../utilities/inventory-validation")
 
 
+router.get('/add-classification', utilities.handleError(invController.buildAddClassification));
+
+
+// add new car inventory
+
+router.get("/add-inventory", utilities.handleError(invController.getClassifications),
+utilities.handleError(invController.buildAddInventory));
+
+
 
 router.get('/', utilities.checkLogin, utilities.checkAccountType, utilities.handleError(managementController.buildManagement));
+
 router.get("/type/:classificationId", invController.buildByClassificationId);
 router.get("/getInventory/:classification_id", utilities.handleError(invController.getInventoryJSON))
 router.get("/edit/:inv_id", utilities.checkLogin, utilities.handleError(invController.editInventoryView))
@@ -27,7 +37,19 @@ router.post(
     utilities.handleError(invController.deleteInventory)
   );
   
-
+  router.post(
+    "/add-inventory",
+    invValidate.inventoryRules(),
+    invValidate.checkInventoryData,
+    utilities.handleError(invController.addInventory)
+  )
+  
+  router.post(
+    "/add-classification",
+    invValidate.classificationRules(),
+    invValidate.checkClassificationData,
+    utilities.handleError(invController.addClassification)
+  )
 
 
 
