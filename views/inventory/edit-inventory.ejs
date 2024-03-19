@@ -107,22 +107,12 @@
         value="<%= locals.inv_color %>"
         pattern=".{3,100}"
       />
-   
-      <div class="btn-ctn">
-
-    <button
-      id="updateForm"
-      type="submit"
-      name="submit"
-      class="btn-login" 
-    >Vehicle Update </button>
-
-
-
-
-
-
-    </div>
+        <div class="ctn-delete">
+          <a href="javascript:history.back()">
+            <button class="btn-cancel" id="historyBack" type="button" name="cancel">Cancelar</button>
+            </a>
+          <button class="btn-login" id="updateForm" type="submit" name="submit" >Update</button>
+        </div>
     <input type="hidden" name="inv_id"
 <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
 <% } %>>
@@ -130,6 +120,4 @@
 </div>
 
 <noscript>JavaScript must be enabled to use this page.</noscript>
-
-
 <script src="../../js/inv-update.js"></script>
