@@ -32,14 +32,6 @@ async function buildRegister(req, res, next) {
   })
 
 }
-async function buildUpdateAccount(req, res, next) {
-  let nav = await utilities.getNav()
-  res.render("account/update", {
-    title: "Update Account",
-    nav,
-    errors: null,
-  })
-}
 async function registerAccount(req, res) {
   let nav = await utilities.getNav()
   const { account_firstname, account_lastname, account_email, account_password } = req.body
@@ -127,12 +119,12 @@ async function accountLogin(req, res) {
 
  async function buildUpdateAccount(req, res, next) {
   let nav = await utilities.getNav()
-  const account_id = 10
+  const account_id = parseInt(req.params.account_id)
   const invData = await accountModel.getAccountId(account_id)
   console.log(invData.rows[0]);
   console.log(invData.rows[0].account_firstname);
   const itemName = invData.rows[0].account_firstname + " " + invData.rows[0].account_lastname
-  res.render("account/update", {
+  res.render(`account/update`, {
     title: "Update Account " + itemName,
     nav,
     errors: null,
