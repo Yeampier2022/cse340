@@ -11,12 +11,22 @@
   <% } %>
 </div>
 <h1><%= title  %></h1>
-<h1>Welcome <%= accountData.account_firstname %></h1>
-<h3>You're logged in </h3>
-<a href="/account/update/<%= accountData.account_id %>">Edit account info</a>
-<h1>Inventory Managemet </h1>
-<a href="/inv">Managemet Inventory</a>
 
+
+    
+  <% if ((locals.accountData.account_type == 'Client') ) { %>
+    <h2>Welcome Basic, <%- locals.accountData.account_firstname %></h2>
+    <p><a href="/account/update/<%- locals.accountData.account_id %>" title="manage Account">Edit account info</a></p> 
+  <% } 
+  if (locals.accountData.account_type == 'Employee' || locals.accountData.account_type == 'Admin'){ %>
+    <h2>Welcome , <%- locals.accountData.account_firstname %></h2>
+    <p><a href="/account/update/<%- locals.accountData.account_id %>" title="manage Account">Edit account info</a></p> 
+    <h3>Manage Inventory</h3>
+    <p><a href="/inv/" title="manage inventory">Inventory Manage </a></p> 
+    
+    
+  <% } %>
+    
 
 
 

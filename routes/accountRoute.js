@@ -28,5 +28,10 @@ regValidate.updateRules(),
 regValidate.checkUpdateData,
 utilities.handleError(accountController.updateAccount))
 
+router.post("/change-password",
+regValidate.changePasswordRules(),
+regValidate.checkChangePassword,
+utilities.handleError(accountController.changePassword))
+
 
 module.exports = router;

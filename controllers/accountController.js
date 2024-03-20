@@ -78,6 +78,39 @@ async function registerAccount(req, res) {
   }
 }
 
+async function changePassword(req, res) {
+  let nav = await utilities.getNav()
+  const { account_id, account_password } = req.body
+  let hasdhedPassword
+  try {
+    hasdhedPassword = await bcrypt.hash(account_password, 10)
+  }
+  catch (err) {
+    req.flash("notice", "Sorry, the password change failed.")
+    res.status(501).render("account/change-password", {
+      title: "Change Password",
+      nav,
+      errors: "Password change failed.",
+    })
+  }
+  const changeResult = await accountModel.changePassword(account_id, hasdhedPassword)
+  if (changeResult) {
+    req.flash("notice", `The password was successfully changed.`)
+    res.redirect("/account"), {
+      title: "Account Management",
+      nav,
+      errors: null,
+    }
+  } else {
+    req.flash("notice", "Sorry, the password change failed.")
+    res.status(501).render("account/change-password", {
+      title: "Change Password",
+      nav,
+      errors: "Password change failed.",
+    })
+  }
+}
+
 
 async function accountLogin(req, res) {
   let nav = await utilities.getNav()
@@ -132,19 +165,17 @@ async function accountLogin(req, res) {
     account_firstname: invData.rows[0].account_firstname,
     account_lastname: invData.rows[0].account_lastname,
     account_email: invData.rows[0].account_email,
-    account_password: invData.rows[0].account_password,
   })
 }
 
  async function updateAccount(req, res) {
   let nav = await utilities.getNav()
-  const { account_id, account_firstname, account_lastname, account_email, account_password } = req.body
+  const { account_id, account_firstname, account_lastname, account_email } = req.body
   const updateResult = await accountModel.updateAccount(
     Number(account_id),
     String(account_firstname),
     String(account_lastname),
     String(account_email),
-    String(account_password)
   )
 
   if (updateResult) {
@@ -164,10 +195,9 @@ async function accountLogin(req, res) {
       account_firstname,
       account_lastname,
       account_email,
-      account_password,
     })
   }
 }
 
 
-module.exports = { buildLogin,updateAccount, buildUpdateAccount, buildRegister, registerAccount, accountLogin, accountManagement }
+module.exports = { buildLogin,updateAccount,  changePassword, buildUpdateAccount, buildRegister, registerAccount, accountLogin, accountManagement }

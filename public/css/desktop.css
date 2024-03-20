@@ -284,6 +284,8 @@ footer {
 }
 #tools {
   font-size: 1vw;
+  display: flex;
+  gap: 0.5vw;
 }
 .p-upgrade {
   font-size: 2vw;
