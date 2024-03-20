@@ -42,10 +42,10 @@ async function getAccountByEmail(account_email, account_password) {
   }
 }
 
-async function updateAccount(account_id, account_firstname, account_lastname, account_email, account_password) {
+async function updateAccount(account_id, account_firstname, account_lastname, account_email) {
   try {
-    const sql = "UPDATE account SET account_firstname = $1, account_lastname = $2, account_email = $3, account_password = 4$ WHERE account_id = $5"
-    return await pool.query(sql, [account_firstname, account_lastname, account_email, account_password, account_id])
+    const sql = "UPDATE account SET account_firstname = $1, account_lastname = $2, account_email = $3 WHERE account_id = $4"
+    return await pool.query(sql, [account_firstname, account_lastname, account_email, account_id])
   } catch (error) {
     return error.message
   }
@@ -59,5 +59,14 @@ async function changePassword(account_id, account_password) {
     return error.message
   }
 }
-module.exports = { registerAccount, updateAccount, changePassword, checkExistingEmail, getAccountByEmail };
+
+async function getAccountId(account_id = 10) {
+  try {
+    const sql = "SELECT * FROM account WHERE account_id = $1"
+    return await pool.query(sql, [account_id])
+  } catch (error) {
+    return error.message
+  }
+}
+module.exports = { registerAccount, getAccountId, updateAccount, changePassword, checkExistingEmail, getAccountByEmail };
 

@@ -122,29 +122,57 @@ async function accountLogin(req, res) {
   }
  }
 
+
+
+
+ async function buildUpdateAccount(req, res, next) {
+  let nav = await utilities.getNav()
+  const account_id = 10
+  const invData = await accountModel.getAccountId(account_id)
+  console.log(invData.rows[0]);
+  console.log(invData.rows[0].account_firstname);
+  const itemName = invData.rows[0].account_firstname + " " + invData.rows[0].account_lastname
+  res.render("account/update", {
+    title: "Update Account " + itemName,
+    nav,
+    errors: null,
+    account_id: invData.rows[0].account_id,
+    account_firstname: invData.rows[0].account_firstname,
+    account_lastname: invData.rows[0].account_lastname,
+    account_email: invData.rows[0].account_email,
+    account_password: invData.rows[0].account_password,
+  })
+}
+
  async function updateAccount(req, res) {
   let nav = await utilities.getNav()
-  const { account_firstname, account_lastname, account_email, account_password } = req.body
-  const accountData = await accountModel.updateAccount(
-    account_firstname,
-    account_lastname,
-    account_email,
-    account_password
+  const { account_id, account_firstname, account_lastname, account_email, account_password } = req.body
+  const updateResult = await accountModel.updateAccount(
+    Number(account_id),
+    String(account_firstname),
+    String(account_lastname),
+    String(account_email),
+    String(account_password)
   )
-  if (accountData) {
-    req.flash("notice", "Account updated.")
-    res.status(201).render("account/management", {
+
+  if (updateResult) {
+    req.flash("notice", `The account was successfully updated.`)
+    res.redirect("/account"), {
       title: "Account Management",
-      nav,
-      accountData: accountData.account_firstname,
-    })
+      errors: null,
+    }
   } else {
+    const itemName = `${account_firstname} ${account_lastname}`
     req.flash("notice", "Sorry, the update failed.")
-    res.redirect("account", {
-      title: "Update Account",
+    res.status(501).render("account/update", {
+      title: "Update " + itemName,
       nav,
-      errors: "Update failed.",
-      accountData: accountData.account_firstname,
+      errors: null,
+      account_id,
+      account_firstname,
+      account_lastname,
+      account_email,
+      account_password,
     })
   }
 }
