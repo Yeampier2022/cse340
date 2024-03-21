@@ -37,6 +37,9 @@ body {
 .color-body {
   background-color: #ffe8d6;
 }
+.movie-not-found {
+  width: 50vw;
+}
 .title-login {
   text-align: center;
 }
