@@ -27,6 +27,10 @@ input:required:valid {
   gap: 1vw;
   padding: 1vw 1vw;
 }
+.font-reviews {
+  font-size: 2vw;
+  margin: 0;
+}
 .sign-up {
   text-decoration: solid;
   opacity: 1;
@@ -290,8 +294,9 @@ footer {
 .p-upgrade {
   font-size: 2vw;
   padding: 0;
-  margin-bottom: 1.5vw;
   text-align: center;
+  margin: 0;
+  margin-bottom: 1.5vw;
 }
 .grid-columns {
   display: grid;
