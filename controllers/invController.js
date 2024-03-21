@@ -123,7 +123,6 @@ invCont.buildAddClassification = async function buildAddClassification(req, res,
   })
 }
 invCont.addClassification = async function addClassification(req, res, next) {
-  console.log("Adding classification");
   let nav = await utilities.getNav()
   let classification_name = req.body.classification_name
   let result = await invModel.addClassification(classification_name)
@@ -132,8 +131,7 @@ invCont.addClassification = async function addClassification(req, res, next) {
 
 
   if (result && result.rowCount > 0) {
-      console.log("Classification added");
-      req.flash("notice", "Classification added")
+      req.flash(`notice`, `the ${classification_name} was successfully added.`)
       res.status(201).render("inventory/management", {
           title: "Add Classification",
           nav,
@@ -190,8 +188,7 @@ invCont.addInventory = async function addInventory(req, res, next) {
 
     console.log(result);
     if (result && result.rowCount > 0) {
-        console.log("Inventory added");
-        req.flash("notice", "Inventory added")
+        req.flash(`notice`, `The  ${inv_make} ${inv_model} was successfully added.`)
         res.status(201).render("inventory/management", {
             title: "Add Car Inventory",
             nav,
