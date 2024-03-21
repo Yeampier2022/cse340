@@ -7,22 +7,22 @@ const managementController = require('../controllers/managementController');
 const invValidate = require("../utilities/inventory-validation")
 
 
-router.get('/add-classification', utilities.handleError(invController.buildAddClassification));
+router.get('/add-classification', utilities.handleErrors(invController.buildAddClassification));
 
 
 // add new car inventory
 
-router.get("/add-inventory", utilities.handleError(invController.getClassifications),
-utilities.handleError(invController.buildAddInventory));
+router.get("/add-inventory", utilities.handleErrors(invController.getClassifications),
+utilities.handleErrors(invController.buildAddInventory));
 
 
 
-router.get('/', utilities.checkLogin, utilities.checkAccountType, utilities.handleError(managementController.buildManagement));
+router.get('/', utilities.checkLogin, utilities.checkAccountType, utilities.handleErrors(managementController.buildManagement));
 
 router.get("/type/:classificationId", invController.buildByClassificationId);
-router.get("/getInventory/:classification_id", utilities.handleError(invController.getInventoryJSON))
-router.get("/edit/:inv_id", utilities.checkLogin, utilities.handleError(invController.editInventoryView))
-router.get("/delete/:inv_id", utilities.checkAccountType, utilities.checkLogin, utilities.handleError(invController.buildDeleteInventory))
+router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
+router.get("/edit/:inv_id", utilities.checkLogin, utilities.handleErrors(invController.editInventoryView))
+router.get("/delete/:inv_id", utilities.checkAccountType, utilities.checkLogin, utilities.handleErrors(invController.buildDeleteInventory))
 
 router.post("/update", invController.updateInventory,
 utilities.checkLogin,
@@ -34,21 +34,21 @@ router.post(
     utilities.checkAccountType,
     invValidate.deleteAccountRules(),
     invValidate.checkDeleteAccountData,
-    utilities.handleError(invController.deleteInventory)
+    utilities.handleErrors(invController.deleteInventory)
   );
   
   router.post(
     "/add-inventory",
     invValidate.inventoryRules(),
     invValidate.checkInventoryData,
-    utilities.handleError(invController.addInventory)
+    utilities.handleErrors(invController.addInventory)
   )
   
   router.post(
     "/add-classification",
     invValidate.classificationRules(),
     invValidate.checkClassificationData,
-    utilities.handleError(invController.addClassification)
+    utilities.handleErrors(invController.addClassification)
   )
 
 
