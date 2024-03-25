@@ -110,7 +110,17 @@ async function changePassword(req, res) {
     })
   }
 }
-
+async function logout(req, res) {
+  console.log("logout");
+  try {
+    res.clearCookie("jwt")
+    res.clearCookie("sessionId")
+    req.flash("notice", "You are now logged out.")
+    res.redirect("/") 
+  } catch (error) {
+    res.status(500).send("Internal server error")
+  }
+}
 
 async function accountLogin(req, res) {
   let nav = await utilities.getNav()
@@ -200,4 +210,4 @@ async function accountLogin(req, res) {
 }
 
 
-module.exports = { buildLogin,updateAccount,  changePassword, buildUpdateAccount, buildRegister, registerAccount, accountLogin, accountManagement }
+module.exports = { buildLogin,updateAccount, logout,  changePassword, buildUpdateAccount, buildRegister, registerAccount, accountLogin, accountManagement }

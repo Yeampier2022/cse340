@@ -33,5 +33,6 @@ regValidate.changePasswordRules(),
 regValidate.checkChangePassword,
 utilities.handleErrors(accountController.changePassword))
 
+router.post("/logout", utilities.handleErrors(accountController.logout));
 
 module.exports = router;
