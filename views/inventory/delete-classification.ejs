@@ -1,0 +1,23 @@
+<% if (title) { %>
+    <h1 class="title-login"><%= title %></h1>
+    <% } else {
+      res.redirect('/')
+    } %>
+  
+    <%- messages() %>
+    <% if (errors) { %>
+      <ul class="notice">
+     <% errors.array().forEach(error => { %>
+       <li><%= error.msg %></li>
+    <%  }) %>
+     </ul>
+    <% } %>
+  
+
+<form action="inv/delete-classification" method="post">
+    <label>
+        <span>Classification</span><span class="required">*</span>
+        <% if(classificationSelect) { %> <%- classificationSelect %> <% } %>
+      </label>
+<button  class="btn-login" type="submit">Delete</button>
+</form>
