@@ -59,7 +59,6 @@ async function registerAccount(req, res) {
 
   if (regResult) {
 
-    console.log(regResult.rows[0]);
     req.flash(
       "notice",
       `Congratulations, you\'re registered ${account_firstname}. Please log in.`
@@ -111,7 +110,6 @@ async function changePassword(req, res) {
   }
 }
 async function logout(req, res) {
-  console.log("logout");
   try {
     res.clearCookie("jwt")
     res.clearCookie("sessionId")
@@ -127,7 +125,6 @@ async function accountLogin(req, res) {
   const { account_email, account_password } = req.body
   const accountData = await accountModel.getAccountByEmail(account_email)
   if (!accountData) {
-    console.log("No accountData");
    req.flash("notice", "Please check your credentials and try again.")
    res.status(400).render("account/login", {
     title: "Login",
@@ -164,8 +161,6 @@ async function accountLogin(req, res) {
   let nav = await utilities.getNav()
   const account_id = parseInt(req.params.account_id)
   const invData = await accountModel.getAccountId(account_id)
-  console.log(invData.rows[0]);
-  console.log(invData.rows[0].account_firstname);
   const itemName = invData.rows[0].account_firstname + " " + invData.rows[0].account_lastname
   res.render(`account/update`, {
     title: "Update Account " + itemName,

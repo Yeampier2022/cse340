@@ -27,7 +27,6 @@ invCont.buildByClassificationId = async function (req, res, next) {
 invCont.buildDetailCarId = async function (req, res, next) {
   const inv_id = req.params.carId
   const data = await invModel.getInventoryDetailByCarId(inv_id)
-  console.log(data);
   const grid = await utilities.buildDetailGrid(data)
   let nav = await utilities.getNav()
   const className = data[0].inv_year + " " + data[0].inv_make + " " + data[0].inv_model
@@ -83,7 +82,6 @@ invCont.updateInventory = async function (req, res, next) {
   )
 
   if (updateResult) {
-    console.log("updateResult", updateResult);
     const itemName = updateResult[0].inv_make + " " + updateResult[0].inv_model
     req.flash("notice", `The ${itemName} was successfully updated.`)
     res.redirect("/inv")
@@ -186,7 +184,6 @@ invCont.addInventory = async function addInventory(req, res, next) {
     let result = await invModel.addInventory(classification_id, inv_make, inv_model, inv_description, inv_image, inv_thumbnail, inv_price, inv_year, inv_miles, inv_color)
     const classificationSelect = await utilities.buildClassificationList()
 
-    console.log(result);
     if (result && result.rowCount > 0) {
         req.flash(`notice`, `The  ${inv_make} ${inv_model} was successfully added.`)
         res.status(201).render("inventory/management", {

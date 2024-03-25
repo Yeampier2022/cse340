@@ -7,6 +7,9 @@
 .red li {
   color: red;
 }
+.font-logout {
+  font-size: 1vw;
+}
 input:required:invalid && input:required:invalid:read-write,
 input:focus:invalid {
   /* insert your own styles for invalid form input */
@@ -290,6 +293,7 @@ footer {
   font-size: 1vw;
   display: flex;
   gap: 0.5vw;
+  flex-direction: row;
 }
 .p-upgrade {
   font-size: 2vw;

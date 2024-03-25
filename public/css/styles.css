@@ -7,6 +7,7 @@ body {
   display: flex;
   justify-content: space-around;
 }
+
 .account {
   display: flex;
   flex-direction: column;
@@ -90,13 +91,13 @@ input[type="text"]:focus {
 }
 .btn-login {
   width: 15vw;
-  width: 20vw;
+  width: 13vw;
   padding: 1vw 0vw;
   opacity: 1;
   transition: 0.4s;
   border-radius: 5vw;
   background-color: #cb997e;
-  font-size: 4vw;
+  font-size: 2vw;
   cursor: pointer;
 }
 .btn-ctn {
@@ -203,9 +204,15 @@ a {
 .siteName {
   font-size: 10vw;
 }
+.font-logout {
+  font-size: 2.5vw;
+}
 #tools {
+  display: flex;
+  flex-direction: column;
   padding-top: 3.5vw;
   padding-right: 1vw;
+  font-size: 2vw;
 }
 .ul-reviews {
   padding: 1vw 5vw;
