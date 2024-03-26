@@ -51,15 +51,13 @@ invCont.getInventoryJSON = async (req, res, next) => {
   }
 }
 invCont.buildDeleteClassification = async function(req, res, next){
-  const classification_id = parseInt(req.params.classification_id)
   let nav = await utilities.getNav()
-  const itemData = await invModel.deleteClassification(classification_id)
-  res.render("./inventory/delete-classification", {
+  const classificationSelect = await utilities.buildClassificationList();
+  res.render(`./inventory/delete-classification`, {
     title: "Delete ",
     nav,
     errors: null,
-    classification_id: itemData[0].classification_id,
-    classification_name: itemData[0].classification_name,
+    classificationSelect
   })
 }
 
@@ -274,11 +272,11 @@ invCont.deleteClassification = async function(req, res, next){
   const classification_id = parseInt(req.body.classification_id)
   const deleteResult = await invModel.deleteClassification(classification_id)
   if (deleteResult) {
-    req.flash("notice", `The delted was successfully .`)
+    req.flash("notice", `The classification was successfully deleted.`)
     res.redirect("/inv")
   } else {
     req.flash("notice", "Sorry, the delete failed.")
-    res.redirect(501)(`/inv/delete/${classification_id}`)
+    res.redirect(501)(`/inv/delete-classification`)
   }
 }
 

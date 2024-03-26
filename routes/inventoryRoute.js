@@ -22,7 +22,7 @@ router.get("/type/:classificationId", invController.buildByClassificationId);
 router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
 router.get("/edit/:inv_id", utilities.checkLogin, utilities.handleErrors(invController.editInventoryView))
 router.get("/delete/:inv_id", utilities.checkAccountType, utilities.checkLogin, utilities.handleErrors(invController.buildDeleteInventory))
-router.get("/delete-classification/:classification_id", utilities.handleErrors(invController.buildDeleteClassification))
+router.get("/delete-classification", utilities.handleErrors(invController.buildDeleteClassification))
 
 router.post("/update", invController.updateInventory,
 utilities.checkLogin,
@@ -55,7 +55,7 @@ router.post(
     "/delete-classification",
     utilities.checkLogin,
     utilities.checkAccountType,
-    invValidate.deleteAccountRules(),
+    utilities.checkAccountType,
     invValidate.checkDeleteAccountData,
     utilities.handleErrors(invController.deleteClassification)
   );
