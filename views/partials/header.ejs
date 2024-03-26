@@ -1,17 +1,25 @@
 <header id="top-header">
+  <div>
     <span class="siteName">
       <a href="/" title="Return to home page">CSE Motors</a>
     </span>
+  </div>
+   
 
     
     <div id="tools">
 
       <% if (locals.loggedin) { %>
-        <span class="font-logout">Welcome, <%- locals.accountData.account_firstname %></span> 
-        <a class="font-logout" title="Click to log in" href="/account/">Account Management</a>
-        <form  class="form-logout" method="post" action="logout">
-          <button  id="logout"  class="btn-login"type="submit">Logout</button>
-        </form>
+        <div class="login-app">
+          <span class="font-logout">Welcome, <%- locals.accountData.account_firstname %></span> 
+          <a class="font-logout" title="Click to log in" href="/account/">Account Management</a>
+        </div>
+        <div>
+          <form  class="form-logout" method="post" action="logout">
+            <button  id="logout"  class="btn-login"type="submit">Logout</button>
+          </form>
+        </div>
+        
       <% } else { %>
         <a title="Click to log in" href="/account/login">My Account</a>
         

@@ -287,13 +287,21 @@ footer {
 .siteName {
   font-size: 3vw;
   color: black;
-  padding-top: 2vw;
+}
+.login-app {
+  display: flex;
+  flex-direction: column;
 }
 #tools {
+  align-self: center;
+
   font-size: 1vw;
   display: flex;
   gap: 0.5vw;
   flex-direction: row;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
 }
 .p-upgrade {
   font-size: 2vw;
@@ -307,6 +315,11 @@ footer {
   grid-template-columns: 1fr 1fr;
   gap: 3vw;
   padding: 2.5vw 0vw;
+}
+.welcome {
+  font-size: 2vw;
+  color: black;
+  margin: 0.5vw;
 }
 .width-img {
   width: 3vw;
