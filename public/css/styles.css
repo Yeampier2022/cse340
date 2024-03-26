@@ -192,7 +192,7 @@ p {
 }
 .vehiles {
   margin: 7vw;
-  width: 90vw;
+  width: 82vw;
 }
 .img-card {
   display: flex;
@@ -250,7 +250,7 @@ footer {
   align-content: center;
   justify-items: center;
   align-items: center;
-  gap: 4vw;
+  gap: 2vw;
 }
 .width-img {
   width: 20vw;
