@@ -13,11 +13,13 @@
      </ul>
     <% } %>
   
-
-<form action="delete-classification" method="post">
+    <div class="ctn-classification">
+<form class="form-classification" action="delete-classification" method="post">
+  <span>To remove the classification, the classification must not have any added vehicle</span>
     <label>
         <span>Classification</span><span class="required">*</span>
         <% if(classificationSelect) { %> <%- classificationSelect %> <% } %>
       </label>
 <button  class="btn-login" type="submit">Delete</button>
 </form>
+</div>

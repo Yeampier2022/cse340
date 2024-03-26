@@ -276,7 +276,7 @@ invCont.deleteClassification = async function(req, res, next){
     res.redirect("/inv")
   } else {
     req.flash("notice", "Sorry, the delete failed.")
-    res.redirect(501)(`/inv/delete-classification`)
+    res.redirect("/inv")
   }
 }
 
