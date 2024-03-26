@@ -5,6 +5,7 @@ const invController = require("../controllers/invController")
 const utilities = require("../utilities/")
 const managementController = require('../controllers/managementController');
 const invValidate = require("../utilities/inventory-validation")
+const accountController = require("../controllers/accountController")
 
 
 router.get('/add-classification', utilities.handleErrors(invController.buildAddClassification));
@@ -59,6 +60,7 @@ router.post(
     invValidate.checkDeleteAccountData,
     utilities.handleErrors(invController.deleteClassification)
   );
+router.post("/logout", utilities.handleErrors(accountController.logout));
 
 
 
